@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.select :category_id, nested_set_options(Category, @album.category) {|i, level| "#{'-' * level} #{i.name}" } %>
+  </div>
+
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

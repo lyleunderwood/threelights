@@ -1,4 +1,4 @@
-<%= form_for(@image) do |f| %>
+<%= form_for(@image, :html => {:multipart => true}) do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -10,6 +10,14 @@
       </ul>
     </div>
   <% end %>
+
+  <div class="field">
+    <%= f.file_field :subject %>
+  </div>
+
+  <div class="field">
+    <%= f.select(:album_id, (Album.all.collect {|a| [a.name, a.id]}), {:prompt => 'Select Album'}) %>
+  </div>
 
   <div class="field">
     <%= f.label :name %><br />

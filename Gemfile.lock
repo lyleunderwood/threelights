@@ -1,4 +1,20 @@
 GIT
+  remote: git://github.com/rrouse/slug.git
+  revision: 9ca669ab1c2c30f23467a418a0f8775c54de11e0
+  specs:
+    slug (0.5.7)
+      activerecord
+      activesupport
+
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 6a10b358bff2562a5c9b1585f0c8122b540966a3
+  specs:
+    paperclip (2.3.8)
+      activerecord
+      activesupport
+
+GIT
   remote: https://github.com/skyeagle/nested_set.git
   revision: 01259fa3ddd0777b014b22182b312000572e3327
   specs:
@@ -106,8 +122,10 @@ DEPENDENCIES
   factory_girl
   faker
   nested_set!
+  paperclip!
   rails (= 3.0.3)
   rspec
   rspec-rails
+  slug!
   sqlite3-ruby
   test_notifier
