@@ -15,6 +15,10 @@ class ImagesController < ApplicationController
   def show
     @image = Image.find(params[:id])
 
+    #@image.views = @image.views + 1
+    #@image.save!
+    @image.viewed!
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @image }
