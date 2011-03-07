@@ -1,9 +1,9 @@
 Threelights::Application.routes.draw do
-  resources :categories
-
-  resources :images
-
-  resources :albums
+  resources :categories do
+    resources :albums do
+      resources :images
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

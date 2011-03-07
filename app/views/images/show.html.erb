@@ -20,5 +20,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<%= link_to 'Edit', edit_category_album_image_path(@image.album.category, @image.album, @image) %> |
+<%= link_to 'Back', category_album_path(@image.album.category, @image.album.id) %>
