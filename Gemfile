@@ -35,6 +35,7 @@ gem 'nested_set', :git => 'https://github.com/skyeagle/nested_set.git'
 gem 'mysql2'
 gem 'slug', :git => 'git://github.com/rrouse/slug.git'
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec'

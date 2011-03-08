@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.xml
   def show
     @category = Category.find_by_slug(params[:id])
+    @albums = @category.albums.page(params[:page]).per(8)
 
     respond_to do |format|
       format.html # show.html.erb
