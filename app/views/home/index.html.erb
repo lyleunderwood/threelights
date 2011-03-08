@@ -1,9 +1,11 @@
 <ul id="main_categories">
 <% @categories.each do |category| %>
-  <li><%= link_to category.name, category %>
+  <li><%= link_to category.name, category %><br />
+    <%= category.description %>
     <ul>
       <% category.children.each do |subcategory| %>
-        <li><%= link_to subcategory.name, subcategory %></li>
+        <li><%= link_to subcategory.name, subcategory %><br />
+          <%= subcategory.description %></li>
       <% end %>
     </ul>
   </li>
