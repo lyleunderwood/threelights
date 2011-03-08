@@ -81,7 +81,7 @@ class ImagesController < ApplicationController
     @image.destroy
 
     respond_to do |format|
-      format.html { redirect_to(images_url) }
+      format.html { redirect_to([@image.album.category, @image.album]) }
       format.xml  { head :ok }
     end
   end
