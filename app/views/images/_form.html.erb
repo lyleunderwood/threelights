@@ -12,10 +12,14 @@
   <% end %>
 
   <div class="field">
+    <%= f.select :album_id, @image.album.category.albums.collect {|album| [album.name, album.id]} %>
+  </div>
+
+  <div class="field">
     <%= f.file_field :subject %>
   </div>
 
-  <%= f.hidden_field :album_id %>
+  <% #f.hidden_field :album_id %>
 
   <div class="field">
     <%= f.label :name %><br />
