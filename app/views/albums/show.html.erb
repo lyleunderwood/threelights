@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% breadcrumb(@album).each do |crumb| %>
+  <%= crumb %>
+<% end %>
+
 <p>
   <b>Name:</b>
   <%= @album.name %>

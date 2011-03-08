@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% breadcrumb(@category).each do |crumb| %>
+  <%= crumb %>
+<% end %>
+
 <p>
   <b>Name:</b>
   <%= @category.name %>
