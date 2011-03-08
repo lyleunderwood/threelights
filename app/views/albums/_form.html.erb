@@ -1,4 +1,4 @@
-<%= form_for(@album) do |f| %>
+<%= form_for(@album.category, @album) do |f| %>
   <% if @album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
@@ -13,7 +13,7 @@
 
 
   <div class="field">
-    <%= f.select :category_id, nested_set_options(Category, @album.category) {|i, level| "#{'-' * level} #{i.name}" } %>
+    <%= f.select :category_id, nested_set_options(Category) {|i, level| "#{'-' * level} #{i.name}" } %>
   </div>
 
   <div class="field">

@@ -25,6 +25,7 @@ class AlbumsController < ApplicationController
   # GET /albums/new.xml
   def new
     @album = Album.new
+    @album.category = Category.find_by_slug(params[:category_id])
 
     respond_to do |format|
       format.html # new.html.erb

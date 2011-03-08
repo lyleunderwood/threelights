@@ -70,7 +70,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mysql (2.8.1)
+    mysql2 (0.2.6)
     notifier (0.1.2)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -119,7 +119,7 @@ DEPENDENCIES
   autotest
   factory_girl
   faker
-  mysql
+  mysql2
   nested_set!
   paperclip!
   rails (= 3.0.3)

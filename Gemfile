@@ -32,7 +32,7 @@ gem 'rails', '3.0.3'
 #gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
 gem 'nested_set', :git => 'https://github.com/skyeagle/nested_set.git'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mysql'
+gem 'mysql2'
 gem 'slug', :git => 'git://github.com/rrouse/slug.git'
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
 
