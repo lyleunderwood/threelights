@@ -15,11 +15,15 @@
 </p>
 
 <ul>
-  <% @album.images.each do |image| %>
+  <% @images.each do |image| %>
     <li><%= link_to(image_tag(image.subject.url(:thumb)), category_album_image_path(@album.category, @album, image)) %> -- 
       <%= link_to 'Destroy', [@album.category, @album, image], :confirm => 'Are you sure?', :method => :delete %></li>
   <% end %>
 </ul>
+
+<div>
+  <%= paginate @images %>
+</div>
 
 
 <%= link_to 'Add Image', new_category_album_image_path(@album.category, @album) %> |

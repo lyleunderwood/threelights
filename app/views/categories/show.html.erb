@@ -21,15 +21,10 @@
 </ul>
 
 <ul>
-  <% @albums.each do |album| %>
+  <% @category.albums.each do |album| %>
     <li><%= link_to album.name, [@category, album] %> -- <%= link_to 'Destroy', [@category, album], :confirm => 'Are you sure?', :method => :delete %></li>
   <% end %>
 </ul>
-
-<div>
-  <%= paginate @albums %>
-</div>
-
 
 <%= link_to 'Add Album', new_category_album_path(@category) %> |
 <%= link_to 'Edit', edit_category_path(@category) %> |
