@@ -11,6 +11,12 @@
 </p>
 
 <ul>
+  <% @category.children.each do |category| %>
+    <li><%= link_to category.name, category %></li>
+  <% end %>
+</ul>
+
+<ul>
   <% @category.albums.each do |album| %>
     <li><%= link_to album.name, [@category, album] %></li>
   <% end %>
@@ -19,4 +25,4 @@
 
 <%= link_to 'Add Album', new_category_album_path(@category) %> |
 <%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', cat_parent_path(@category) %>

@@ -15,9 +15,7 @@
     <%= f.file_field :subject %>
   </div>
 
-  <div class="field">
-    <%= f.select(:album_id, (Album.all.collect {|a| [a.name, a.id]}), {:prompt => 'Select Album'}) %>
-  </div>
+  <%= f.hidden_field :album_id %>
 
   <div class="field">
     <%= f.label :name %><br />

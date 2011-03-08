@@ -29,6 +29,7 @@ class ImagesController < ApplicationController
   # GET /images/new.xml
   def new
     @image = Image.new
+    @image.album = Album.find(params[:album_id])
 
     respond_to do |format|
       format.html # new.html.erb

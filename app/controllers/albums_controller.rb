@@ -45,7 +45,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to(@album, :notice => 'Album was successfully created.') }
+        format.html { redirect_to([@album.category, @album], :notice => 'Album was successfully created.') }
         format.xml  { render :xml => @album, :status => :created, :location => @album }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
-        format.html { redirect_to(@album, :notice => 'Album was successfully updated.') }
+        format.html { redirect_to([@album.category, @album], :notice => 'Album was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -17,5 +17,6 @@
 </ul>
 
 
+<%= link_to 'Add Image', new_category_album_image_path(@album.category, @album) %> |
 <%= link_to 'Edit', edit_category_album_path(@album.category, @album) %> |
-<%= link_to 'Back', category_albums_path(@album.category, @album) %>
+<%= link_to 'Back', category_path(@album.category) %>

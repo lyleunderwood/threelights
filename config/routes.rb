@@ -5,6 +5,8 @@ Threelights::Application.routes.draw do
     end
   end
 
+  root :to => "Home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

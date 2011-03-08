@@ -56,7 +56,7 @@ class CategoriesController < ApplicationController
   # PUT /categories/1
   # PUT /categories/1.xml
   def update
-    @category = Category.find(params[:id])
+    @category = Category.find_by_slug(params[:id])
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
