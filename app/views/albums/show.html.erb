@@ -26,7 +26,7 @@
 </div>
 
 <p class="summary">
-  <%= @album.images.count %> images on <%= @images.num_pages %> pages
+  <%= @album.images.count %> images on <%= pluralize(@images.num_pages, 'page') %>
 </p>
 
 
