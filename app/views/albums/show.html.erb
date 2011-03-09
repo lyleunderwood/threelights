@@ -1,29 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<% breadcrumb(@album).each do |crumb| %>
-  <%= crumb %>
-<% end %>
+<%= raw breadcrumb(@album).join ' > ' %>
 
-<p>
-  <b>Name:</b>
+<h2>
   <%= @album.name %>
-</p>
+</h2>
 
 <p>
-  <b>Description:</b>
   <%= @album.description %>
 </p>
 
 <ul>
   <% @images.each do |image| %>
-    <li><%= link_to(image_tag(image.subject.url(:thumb)), category_album_image_path(@album.category, @album, image)) %> -- 
-      <%= link_to 'Destroy', [@album.category, @album, image], :confirm => 'Are you sure?', :method => :delete %></li>
+    <li>
+      <%= link_to(image_tag(image.subject.url(:thumb)), category_album_image_path(@album.category, @album, image)) %><br />
+      <%= image.name %><br />
+      <%= image.views %><br />
+      <%= link_to 'Destroy', [@album.category, @album, image], :confirm => 'Are you sure?', :method => :delete %>
+    </li>
   <% end %>
 </ul>
 
 <div>
   <%= paginate @images %>
 </div>
+
+<p class="summary">
+  <%= @album.images.count %> images on <%= @images.num_pages %> pages
+</p>
 
 
 <%= link_to 'Add Image', new_category_album_image_path(@album.category, @album) %> |

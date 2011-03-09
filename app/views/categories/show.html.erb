@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<% breadcrumb(@category).each do |crumb| %>
-  <%= crumb %>
-<% end %>
+<%= raw breadcrumb(@category).join ' > ' %>
 
 <p>
   <b>Name:</b>
@@ -14,17 +12,39 @@
   <%= @category.description %>
 </p>
 
-<ul>
-  <% @category.children.each do |category| %>
-    <li><%= link_to category.name, category %> -- <%= link_to 'Destroy', @category, :confirm => 'Are you sure?', :method => :delete %></li></li>
-  <% end %>
-</ul>
+<table class="contents">
 
-<ul>
-  <% @category.albums.each do |album| %>
-    <li><%= link_to album.name, [@category, album] %> -- <%= link_to 'Destroy', [@category, album], :confirm => 'Are you sure?', :method => :delete %></li>
-  <% end %>
-</ul>
+<% unless @category.children.empty? %>
+  <tr>
+    <th>
+      Category
+    </th>
+    <th>
+      Albums
+    </th>
+    <th>
+      Images
+    </th>
+  </tr>
+
+  <%= render :partial => 'subcategory', :collection => @category.children %>
+<% end %>
+
+<% unless @category.albums.empty? %>
+  <tr class="category albums">
+    <td colspan="3">
+      <%= render :partial => 'album', :collection => @category.albums %>
+    </td>
+  </tr>
+
+  <tr class="summary">
+    <th colspan="3">
+      <%= @category.albums.count %> albums
+    </th>
+  </tr>
+<% end %>
+
+</table>
 
 <%= link_to 'Add Album', new_category_album_path(@category) %> |
 <%= link_to 'Edit', edit_category_path(@category) %> |

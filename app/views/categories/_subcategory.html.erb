@@ -1,0 +1,28 @@
+<tr class="subcategory">
+  <td>
+    <%= link_to subcategory.name, subcategory %> 
+    -- 
+    <%= link_to 'Destroy', subcategory.parent, :confirm => 'Are you sure?', :method => :delete %>
+  </td>
+  <td>
+    <%= subcategory.contained_albums.count %>
+  </td>
+  <td>
+    <%= subcategory.contained_images.count %>
+  </td>
+</tr>
+
+<tr class="albums">
+  <td colspan="3">
+
+    <ul class="albums">
+      <%= render :partial => 'album', :collection => subcategory.albums %>
+    </ul>
+  </td>
+</tr>
+
+<tr class="summary">
+  <th colspan="3">
+    <%= subcategory.albums.count %> albums
+  </th>
+</tr>
