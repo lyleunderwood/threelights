@@ -1,15 +1,32 @@
-<ul id="main_categories">
+<table id="main_categories">
 <% @categories.each do |category| %>
-  <li><%= link_to category.name, category %><br />
-    <%= category.description %>
-    <ul>
-      <% category.children.each do |subcategory| %>
-        <li><%= link_to subcategory.name, subcategory %><br />
-          <%= subcategory.description %></li>
-      <% end %>
-    </ul>
-  </li>
+  <tr class="main">
+    <td>
+      <%= link_to category.name, category %><br />
+      <%= category.description %>
+    </td>
+    <td>
+      <%= category.contained_albums.count %>
+    </td>
+    <td>
+      <%= category.contained_images.count %>
+    </td>
+  </tr>
+  <% category.children.each do |subcategory| %>
+    <tr>
+      <td>
+        <%= link_to subcategory.name, subcategory %><br />
+        <%= subcategory.description %>
+      </td>
+      <td>
+        <%= subcategory.contained_albums.count %>
+      </td>
+      <td>
+        <%= subcategory.contained_images.count %>
+      </td>
+    </tr>
+  <% end %>
 <% end %>
-</ul>
+</table>
 
 <%= link_to 'Add Category', new_category_path %>
