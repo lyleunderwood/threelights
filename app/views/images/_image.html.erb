@@ -1,0 +1,7 @@
+<li>
+  <%= link_to(image_tag(image.subject.url(:thumb)), category_album_image_path(image.album.category, image.album, image)) %><br />
+  <%= image.name %><br />
+  <%= image.views %><br />
+  <%= image.description %><br />
+  <%= link_to 'Destroy', [image.album.category, image.album, image], :confirm => 'Are you sure?', :method => :delete %>
+</li>

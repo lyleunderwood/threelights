@@ -1,0 +1,17 @@
+<table class="random_images">
+  <tr>
+    <th>
+      Random Images
+    </th>
+  </tr>
+
+  <tr>
+    <td>
+      <ul>
+        <%= render :partial => 'images/image', :collection => Image.order('RAND()').limit(8) %>
+      </ul>
+    </td>
+  </tr>
+
+
+</table>
