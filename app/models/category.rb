@@ -23,4 +23,8 @@ class Category < ActiveRecord::Base
     sub_images
   end
 
+  def images
+    Image.joins(:album => :category).where('albums.category_id = ' + id.to_s)
+  end
+
 end

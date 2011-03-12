@@ -46,6 +46,8 @@
 
 </table>
 
+<%= render :template => 'images/random', :locals => {:category => @category} %>
+
 <%= link_to 'Add Album', new_category_album_path(@category) %> |
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', cat_parent_path(@category) %>

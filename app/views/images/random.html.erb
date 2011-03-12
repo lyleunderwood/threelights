@@ -1,3 +1,10 @@
+<%
+  if defined? category
+    images = Image.random category
+  else
+    images = Image.random
+  end
+%>
 <table class="random_images">
   <tr>
     <th>
@@ -8,7 +15,7 @@
   <tr>
     <td>
       <ul>
-        <%= render :partial => 'images/image', :collection => Image.order('RAND()').limit(8) %>
+        <%= render :partial => 'images/image', :collection => images %>
       </ul>
     </td>
   </tr>

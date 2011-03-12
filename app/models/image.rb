@@ -7,4 +7,12 @@ class Image < ActiveRecord::Base
     self.views = self.views + 1
     save!
   end
+
+  def self.random category = nil
+    if category
+      category.images.order('RAND()').limit(8)
+    else
+      Image.order('RAND()').limit(8).all
+    end
+  end
 end
