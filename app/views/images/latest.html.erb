@@ -1,8 +1,8 @@
 <%
   if defined? category
-    images = category.images.order(:created_at).limit(8)
+    images = category.images.order('created_at desc').limit(8)
   else
-    images = Image.order(:created_at).limit(8).all
+    images = Image.order('created_at desc').limit(8).all
   end
 %>
 <table class="latest_images">
