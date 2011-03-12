@@ -1,0 +1,24 @@
+<%
+  if defined? category
+    images = category.images.order(:created_at).limit(8)
+  else
+    images = Image.order(:created_at).limit(8).all
+  end
+%>
+<table class="latest_images">
+  <tr>
+    <th>
+      Latest Images
+    </th>
+  </tr>
+
+  <tr>
+    <td>
+      <ul>
+        <%= render :partial => 'images/image', :collection => images %>
+      </ul>
+    </td>
+  </tr>
+
+
+</table>
