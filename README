@@ -1,4 +1,18 @@
 New gallery app for three-lights.net
 
-- Install ruby. This app was built on 1.9, but as far as I know it shouldn't matter. http://lmgtfy.com/?q=how+to+install+ruby+1.9
-- Install rubygems. 
+Install
+
+You need the following things working before you can install this:
+
+- MySQL (the current configuration, to not worry about this change all instances of adapter: mysql2 to adapter: sqlite3 in config/database.yml
+- Ruby 1.9 (it was built in Ruby 1.9, for all I know it may work fine in 1.8)
+- RubyGems
+
+Go to the empty directory where you want to install the application. Run the following commands:
+
+- git clone git://github.com/lyleunderwood/threelights.git
+- bundle install
+- rake db:migrate
+- rails s
+
+Point your web browser to http://localhost:3000 and you will see the empty gallery.
