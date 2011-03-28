@@ -13,7 +13,7 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.xml
   def show
-    @image = Image.find(params[:id])
+    @image = Image.find_by_slug(params[:id])
 
     #@image.views = @image.views + 1
     #@image.save!

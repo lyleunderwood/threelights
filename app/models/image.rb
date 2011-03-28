@@ -3,6 +3,8 @@ class Image < ActiveRecord::Base
 
   belongs_to :album
 
+  slug :name
+
   def viewed!
     self.views = self.views + 1
     save!

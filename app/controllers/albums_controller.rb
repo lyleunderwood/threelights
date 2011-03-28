@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.xml
   def show
-    @album = Album.find(params[:id])
+    @album = Album.find_by_slug(params[:id])
     @images = @album.images.page(params[:page]).per(12)
 
     respond_to do |format|

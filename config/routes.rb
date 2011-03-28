@@ -1,9 +1,16 @@
 Threelights::Application.routes.draw do
+
+  get ':category_id/:id' => 'albums#show', :as => 'category_album'
+  get ':category_id/:album_id/:id' => 'images#show', :as => 'category_album_image'
+
   resources :categories do
     resources :albums do
       resources :images
     end
   end
+
+  get ':id' => 'categories#show', :as => 'category'
+
 
   root :to => "Home#index"
 
