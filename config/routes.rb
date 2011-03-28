@@ -1,10 +1,12 @@
 Threelights::Application.routes.draw do
-  devise_for :users
-
   resources :categories do
     resources :albums do
       resources :images
     end
+  end
+
+  devise_for :users do
+    get 'manage' => 'devise/sessions#new'
   end
 
   get ':category_id/:id' => 'albums#show', :as => 'category_album'
