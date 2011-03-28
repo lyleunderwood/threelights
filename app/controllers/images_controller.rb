@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+
   # GET /images
   # GET /images.xml
   def index

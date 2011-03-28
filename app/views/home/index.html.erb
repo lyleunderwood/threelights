@@ -32,4 +32,4 @@
 <%= render :template => 'images/latest' %>
 <%= render :template => 'images/random' %>
 
-<%= link_to 'Add Category', new_category_path %>
+<%= if_admin { link_to 'Add Category', new_category_path } %>

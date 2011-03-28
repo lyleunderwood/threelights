@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+
   # GET /albums
   # GET /albums.xml
   def index

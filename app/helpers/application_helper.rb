@@ -44,4 +44,12 @@ module ApplicationHelper
     end
     trail
   end
+
+  def if_admin
+    yield if user_signed_in?
+  end
+
+  def is_admin?
+    user_signed_in?
+  end
 end

@@ -1,8 +1,10 @@
 <tr class="subcategory">
   <td>
     <%= link_to subcategory.name, subcategory %> 
-    -- 
-    <%= link_to 'Destroy', subcategory.parent, :confirm => 'Are you sure?', :method => :delete %>
+    <% if is_admin? %>
+      -- 
+      <%= link_to 'Destroy', subcategory.parent, :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
   </td>
   <td>
     <%= subcategory.contained_albums.count %>

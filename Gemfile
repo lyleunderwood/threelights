@@ -36,6 +36,7 @@ gem 'mysql2'
 gem 'slug', :git => 'git://github.com/rrouse/slug.git'
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'kaminari'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec'
