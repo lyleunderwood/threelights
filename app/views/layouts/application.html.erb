@@ -10,7 +10,7 @@
   <h1>Three-Lights.net Gallery</h1>
 
   <% if is_admin? %>
-    <p class="admin">Currently logged in as <strong>Admin</strong></p>
+    <p class="admin">Currently logged in as <strong>Admin</strong>. <%= link_to 'Log out', destroy_user_session_path %></p>
   <% end %>
 
   <p class="notice"><%= notice %></p>
