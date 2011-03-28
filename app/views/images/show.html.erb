@@ -12,7 +12,7 @@
 </p>
 
 <p>
-  <%= @image.description %>
+  <%= h(@image.description).gsub(/\n/, '<br />') %>
 </p>
 
 <p>
