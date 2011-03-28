@@ -1,8 +1,8 @@
 <%
   if defined? category
-    images = Image.random category
+    images = Image.random(category, 8)
   else
-    images = Image.random
+    images = Image.random(nil, 8)
   end
 %>
 <table class="random_images">

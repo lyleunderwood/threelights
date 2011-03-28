@@ -29,7 +29,7 @@ class ImagesController < ApplicationController
   # GET /images/new.xml
   def new
     @image = Image.new
-    @image.album = Album.find(params[:album_id])
+    @image.album = Album.find_by_slug(params[:album_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,7 +39,7 @@ class ImagesController < ApplicationController
 
   # GET /images/1/edit
   def edit
-    @image = Image.find(params[:id])
+    @image = Image.find_by_slug(params[:id])
   end
 
   # POST /images
@@ -61,7 +61,7 @@ class ImagesController < ApplicationController
   # PUT /images/1
   # PUT /images/1.xml
   def update
-    @image = Image.find(params[:id])
+    @image = Image.find_by_slug(params[:id])
 
     respond_to do |format|
       if @image.update_attributes(params[:image])
@@ -77,7 +77,7 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.xml
   def destroy
-    @image = Image.find(params[:id])
+    @image = Image.find_by_slug(params[:id])
     @image.destroy
 
     respond_to do |format|

@@ -1,7 +1,5 @@
 Threelights::Application.routes.draw do
 
-  get ':category_id/:id' => 'albums#show', :as => 'category_album'
-  get ':category_id/:album_id/:id' => 'images#show', :as => 'category_album_image'
 
   resources :categories do
     resources :albums do
@@ -9,7 +7,17 @@ Threelights::Application.routes.draw do
     end
   end
 
+  get ':category_id/:id' => 'albums#show', :as => 'category_album'
+  put ':category_id/:id' => 'albums#update'
+  delete ':category_id/:id' => 'albums#destroy'
+
+  get ':category_id/:album_id/:id' => 'images#show', :as => 'category_album_image'
+  put ':category_id/:album_id/:id' => 'images#update'
+  delete ':category_id/:album_id/:id' => 'images#destroy'
+
   get ':id' => 'categories#show', :as => 'category'
+  put ':id' => 'categories#update'
+  delete ':id' => 'categories#destroy'
 
 
   root :to => "Home#index"

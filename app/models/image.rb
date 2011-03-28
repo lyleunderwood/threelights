@@ -10,9 +10,9 @@ class Image < ActiveRecord::Base
     save!
   end
 
-  def self.random category = nil
+  def self.random category = nil, limit = nil
     if category
-      category.images.order('RAND()').limit(8)
+      category.images(limit, 'RAND()')
     else
       Image.order('RAND()').limit(8).all
     end

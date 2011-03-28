@@ -23,10 +23,14 @@ class Category < ActiveRecord::Base
     sub_images
   end
 
-  def images
-    #Image.joins(:album => :category).where('albums.category_id = ' + id.to_s)
+  def images(limit = 8, order = nil)
     album_ids = contained_albums.map {|a| a.id}
-    Image.where('album_id IN(' + album_ids.join(',') + ')')
+    return [] if album_ids.blank?
+
+    images = Image.where('album_id IN(' + album_ids.join(',') + ')')
+    images = images.limit(limit) if limit
+    images = images.order(order) if order
+    images
   end
 
 end

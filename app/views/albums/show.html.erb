@@ -25,4 +25,5 @@
 
 <%= link_to 'Add Image', new_category_album_image_path(@album.category, @album) %> |
 <%= link_to 'Edit', edit_category_album_path(@album.category, @album) %> |
+<%= link_to 'Destroy', category_album_path(@album.category, @album), :confirm => 'Are you sure?', :method => :delete %> |
 <%= link_to 'Back', category_path(@album.category) %>
