@@ -1,1 +1,4 @@
-Lisa's website.
+New gallery app for three-lights.net
+
+- Install ruby. This app was built on 1.9, but as far as I know it shouldn't matter. http://lmgtfy.com/?q=how+to+install+ruby+1.9
+- Install rubygems. 

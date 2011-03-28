@@ -14,13 +14,6 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 
-staging:
-  adapter: mysql2
-  database: gallery_threelights
-  host: mysql.three-lights.net
-  user: gallery_threelig
-  pass: 5hasqd7d
-
 test:
   adapter: sqlite3
   database: db/test.sqlite3
@@ -29,7 +22,7 @@ test:
 
 production:
   adapter: mysql2
-  database: gallery_threelights
-  host: mysql.three-lights.net
-  username: gallery_threelig
-  password: 5hasqd7d
+  database: <%= ENV['DB_DATABASE'] %>
+  host:     <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
