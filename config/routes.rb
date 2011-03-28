@@ -9,6 +9,10 @@ Threelights::Application.routes.draw do
     get 'manage' => 'devise/sessions#new'
   end
 
+  match 'index.php' => 'redirect#category'
+  match 'thumbnails.php' => 'redirect#album'
+  match 'displayimage.php' => 'redirect#image'
+
   get ':category_id/:id' => 'albums#show', :as => 'category_album'
   put ':category_id/:id' => 'albums#update'
   delete ':category_id/:id' => 'albums#destroy'
