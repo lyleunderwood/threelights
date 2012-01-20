@@ -5,14 +5,14 @@
     images = Image.random(nil, 8)
   end
 %>
-<table class="random_images">
-  <tr>
-    <th>
+<table class="random_images" cellspacing="0">
+  <tr id="randomImg">
+    <td>
       Random Images
-    </th>
+    </td>
   </tr>
 
-  <tr>
+  <tr class="images2">
     <td>
       <ul>
         <%= render :partial => 'images/image', :collection => images %>
@@ -22,3 +22,4 @@
 
 
 </table>
+<clear="left" />

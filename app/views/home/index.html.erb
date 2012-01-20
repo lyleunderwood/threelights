@@ -1,4 +1,9 @@
-<table id="main_categories">
+<table id="main_categories" cellspacing="0">
+  <tr class="head_category">
+    <td>Category</td>
+    <td align="center"><span>Albums</span></td>
+    <td align="center"><span>Files</span></td>
+  </tr>
 <% @categories.each do |category| %>
   <tr class="main">
     <td>
@@ -6,14 +11,14 @@
       <%= category.description %>
     </td>
     <td>
-      <%= category.contained_albums.count %>
+      <!--<%= category.contained_albums.count %>-->
     </td>
     <td>
-      <%= category.contained_images.count %>
+      <!--<%= category.contained_images.count %>-->
     </td>
   </tr>
   <% category.children.each do |subcategory| %>
-    <tr>
+    <tr class="children">
       <td>
         <%= link_to subcategory.name, subcategory %><br />
         <%= subcategory.description %>

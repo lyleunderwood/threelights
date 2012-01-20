@@ -1,15 +1,16 @@
 <tr class="subcategory">
-  <td>
-    <%= link_to subcategory.name, subcategory %> 
+  <td width="600">
+    <%= link_to subcategory.name, subcategory %><br />
+    <%= subcategory.description %> 
     <% if is_admin? %>
       -- 
       <%= link_to 'Destroy', subcategory.parent, :confirm => 'Are you sure?', :method => :delete %>
     <% end %>
   </td>
-  <td>
+  <td align="center">
     <%= subcategory.contained_albums.count %>
   </td>
-  <td>
+  <td align="center">
     <%= subcategory.contained_images.count %>
   </td>
 </tr>
@@ -24,7 +25,7 @@
 </tr>
 
 <tr class="summary">
-  <th colspan="3">
+  <td colspan="3">
     <%= subcategory.albums.count %> albums
-  </th>
+  </td>
 </tr>

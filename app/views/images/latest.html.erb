@@ -5,14 +5,14 @@
     images = Image.limit(8).order('created_at desc').all
   end
 %>
-<table class="latest_images">
-  <tr>
-    <th>
-      Latest Images
-    </th>
+<table class="latest_images" cellspacing="0">
+  <tr id="latestImg">
+    <td>
+      Latest Additions
+    </td>
   </tr>
 
-  <tr>
+  <tr class="images">
     <td>
       <ul>
         <%= render :partial => 'images/image', :collection => images %>
@@ -22,3 +22,4 @@
 
 
 </table>
+<clear="left" />

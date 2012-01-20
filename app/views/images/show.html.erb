@@ -1,32 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<%= raw breadcrumb(@image).join ' > ' %>
+<table class="imagePage" cellspacing="0">
+  <tr>
+    <td id="galleryBreadcrumbs">
+      <%= raw breadcrumb(@image).join ' > ' %>
+    </td>
+  </tr>
+  <tr>
+    <td id="largeThumbnail" align="center">
+      <%= link_to (image_tag @image.subject.url(:view)), @image.subject.to_s, :target => '_blank' %>
+      <p>
+        <strong><%= @image.name %></strong>
+        <br />
+        <%= h(@image.description).gsub(/\n/, '<br />') %>
+        <br />
+       <%= @image.views %> views
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td class="other_images" align="center">
+      <ul>
+        <% @image.album.images.each do |image| %>
+       <li><%= link_to (image_tag image.subject.url(:thumb)), [@image.album.category, @image.album, image] %></li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+</table>
 
 
-<p>
-  <%= link_to (image_tag @image.subject.url(:view)), @image.subject.to_s, :target => '_blank' %>
-</p>
 
-<p>
-  <%= @image.name %>
-</p>
 
-<p>
-  <%= h(@image.description).gsub(/\n/, '<br />') %>
-</p>
 
-<p>
-  <%= @image.views %> views
-</p>
 
-<ul class="peer_images">
-  <% @image.album.images.each do |image| %>
-    <li><%= link_to (image_tag image.subject.url(:thumb)), [@image.album.category, @image.album, image] %></li>
-  <% end %>
-</ul>
 
 <% if is_admin? %>
   <%= link_to 'Edit', edit_category_album_image_path(@image.album.category, @image.album, @image) %> |
   <%= link_to 'Destroy', category_album_image_path(@image.album.category, @image.album, @image), :confirm => 'Are you sure?', :method => :delete %> |
 <% end %>
-<%= link_to 'Back', category_album_path(@image.album.category, @image.album) %>
+<!--<%= link_to 'Back', category_album_path(@image.album.category, @image.album) %>-->
