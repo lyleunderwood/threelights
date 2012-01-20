@@ -3,7 +3,7 @@
 <table class="imagePage" cellspacing="0">
   <tr>
     <td id="galleryBreadcrumbs">
-      <%= raw breadcrumb(@image).join ' > ' %>
+      <%= raw breadcrumb(@image).tap {|bc| bc.pop }.join ' > ' %>
     </td>
   </tr>
   <tr>
