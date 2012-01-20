@@ -1,10 +1,10 @@
 GIT
-  remote: git://github.com/rrouse/slug.git
-  revision: 9ca669ab1c2c30f23467a418a0f8775c54de11e0
+  remote: git://github.com/bkoski/slug.git
+  revision: cca0ca06d0550c5655302a23d50b51900c7105ee
   specs:
-    slug (0.5.7)
-      activerecord
-      activesupport
+    slug (0.6.1)
+      activerecord (> 3.0.0)
+      activesupport (> 3.0.0)
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
