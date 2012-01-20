@@ -34,6 +34,11 @@
 <% end %>
 </table>
 
+<p class="gallerySummary">
+  <%= Image.count %> files in <%= Album.count %> albums
+  and <%= Category.count %> categories viewed <%= Image.sum(:views) %> times
+</p>
+
 <%= render :template => 'images/latest' %>
 <%= render :template => 'images/random' %>
 
