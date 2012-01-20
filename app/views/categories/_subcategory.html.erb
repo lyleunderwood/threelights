@@ -1,9 +1,9 @@
 <tr class="subcategory">
   <td width="600">
     <%= link_to subcategory.name, subcategory %><br />
-    <%= subcategory.description %> 
+    <%= subcategory.description %>
     <% if is_admin? %>
-      -- 
+      --
       <%= link_to 'Destroy', subcategory.parent, :confirm => 'Are you sure?', :method => :delete %>
     <% end %>
   </td>
@@ -23,6 +23,22 @@
     </ul>
   </td>
 </tr>
+
+<% if subcategory.children.any? %>
+<tr class="subcategories">
+  <td colspan="3">
+    <table cellspacing="0" cellpadding="0" class="subcategories">
+      <% subcategory.children.each do |child| %>
+        <tr>
+          <td><%= child.name %></td>
+          <td><%= child.contained_albums.count %></td>
+          <td><%= child.contained_images.count %></td>
+        </tr>
+      <% end %>
+    </table>
+  </td>
+</tr>
+<% end %>
 
 <tr class="summary">
   <td colspan="3">
