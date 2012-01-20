@@ -30,7 +30,7 @@
     <table cellspacing="0" cellpadding="0" class="subcategories">
       <% subcategory.children.each do |child| %>
         <tr>
-          <td><%= child.name %></td>
+          <td><%= link_to child.name, child %></td>
           <td><%= child.contained_albums.count %></td>
           <td><%= child.contained_images.count %></td>
         </tr>
