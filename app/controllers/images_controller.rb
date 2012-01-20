@@ -16,6 +16,7 @@ class ImagesController < ApplicationController
   # GET /images/1.xml
   def show
     @image = Image.find_by_slug(params[:id])
+    @images = image_range(@image)
 
     #@image.views = @image.views + 1
     #@image.save!
@@ -86,5 +87,21 @@ class ImagesController < ApplicationController
       format.html { redirect_to([@image.album.category, @image.album]) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def image_range(target_image)
+    images = target_image.album.images.order(:subject_file_name)
+    index = images.index {|image| image == target_image}
+    return [] unless index
+
+    range_start = index - 2
+    range_start = 0 if range_start < 0
+    range_end = range_start + 5
+    range_end = images.count - 1 if range_end >= images.count
+
+    p range_start, range_end
+    images[Range.new(range_start, range_end, true)]
   end
 end

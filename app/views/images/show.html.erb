@@ -21,7 +21,7 @@
   <tr>
     <td class="other_images" align="center">
       <ul>
-        <% @image.album.images.each do |image| %>
+        <% @images.each do |image| %>
        <li><%= link_to (image_tag image.subject.url(:thumb)), [@image.album.category, @image.album, image] %></li>
         <% end %>
       </ul>
