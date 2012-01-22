@@ -30,7 +30,8 @@ gem 'rails', '3.0.3'
 # end
 
 #gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
-gem 'nested_set', :git => 'https://github.com/skyeagle/nested_set.git'
+#gem 'nested_set', :git => 'https://github.com/skyeagle/nested_set.git'
+gem 'awesome_nested_set'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql2', '< 0.3.0'
 gem 'slug', :git => 'git://github.com/bkoski/slug.git'
