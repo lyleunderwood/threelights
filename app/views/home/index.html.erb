@@ -32,14 +32,16 @@
     </tr>
   <% end %>
 <% end %>
+  <tr>
+    <td class="gallerySummary" colspan="3" align="center">
+        <%= Image.count %> files in <%= Album.count %> albums
+  and <%= Category.count %> categories viewed <%= Image.sum(:views) %> times
+    </td>
+  </tr>
 </table>
 
-<p class="gallerySummary">
-  <%= Image.count %> files in <%= Album.count %> albums
-  and <%= Category.count %> categories viewed <%= Image.sum(:views) %> times
-</p>
 
 <%= render :template => 'images/latest' %>
 <%= render :template => 'images/random' %>
 
-<%= if_admin { link_to 'Add Category', new_category_path } %>
+<div class="addButton"><%= if_admin { link_to 'Add Category +', new_category_path } %></div>

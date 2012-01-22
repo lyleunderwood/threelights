@@ -25,19 +25,14 @@
 </tr>
 
 <% if subcategory.children.any? %>
+
+<% subcategory.children.each do |child| %>
 <tr class="subcategories">
-  <td colspan="3">
-    <table cellspacing="0" cellpadding="0" class="subcategories">
-      <% subcategory.children.each do |child| %>
-        <tr>
-          <td><%= link_to child.name, child %></td>
-          <td><%= child.contained_albums.count %></td>
-          <td><%= child.contained_images.count %></td>
-        </tr>
-      <% end %>
-    </table>
-  </td>
+          <td width="600"><%= link_to child.name, child %></td>
+          <td align="center"><%= child.contained_albums.count %></td>
+          <td align="center"><%= child.contained_images.count %></td>
 </tr>
+<% end %>
 <% end %>
 
 <tr class="summary">

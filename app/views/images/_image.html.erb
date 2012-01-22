@@ -3,5 +3,5 @@
   <strong><%= image.name %></strong><br />
   <strong><%= image.views %> views</strong><br />
   <%= image.description %><br />
-  <%= if_admin { link_to 'Destroy', [image.album.category, image.album, image], :confirm => 'Are you sure?', :method => :delete } %>
+  <span class="destroyImage"><%= if_admin { link_to 'Destroy', [image.album.category, image.album, image], :confirm => 'Are you sure?', :method => :delete } %></span>
 </li>
