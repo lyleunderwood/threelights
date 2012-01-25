@@ -26,7 +26,7 @@ def import_images(client)
 
     image = File.open(Rails.root.join('data', 'pictures', row['filename']))
 
-    unless File.exists? image
+    unless File.exists? image.path
       p "Image missing: #{image.to_s}"
       next
     end
@@ -35,8 +35,8 @@ def import_images(client)
 
     name = row['title'].blank? ? row['filename'] : row['title']
     Image.create!(
-      name: name,
-      description: row['caption'],
+      name: decode(name),
+      description: decode(row['caption']),
       album_id: parent.id,
       views: row['hits'],
       legacy_pos: row['position'],
@@ -59,8 +59,8 @@ def import_albums(client)
     raise Exception.new("Parent category #{row['category_id']} not found for album #{row['aid']}") unless parent
 
     Album.create!(
-      name: row['title'],
-      description: row['description'],
+      name: decode(row['title']),
+      description: decode(row['description']),
       category_id: parent.id,
       position: row['pos'],
       legacy_id: row['aid']
@@ -94,9 +94,13 @@ def import_category(client, row)
   end
 
   Category.create!(
-    name: row['name'].gsub('&amp;', '&'),
-    description: row['description'],
+    name: decode(row['name']),
+    description: decode(row['description']),
     parent_id: parent.id,
     legacy_id: row['cid']
   )
+end
+
+def decode(str)
+  CGI.unescapeHTML str
 end
