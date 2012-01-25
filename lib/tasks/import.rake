@@ -2,13 +2,52 @@ require 'mysql2'
 
 desc "Migrate stuff over from old coppermine tables"
 task :import =>:environment do
-  client = Mysql2::Client.new(:host => 'localhost', :username => 'root', :password => 'root', :database => 'threelights')
+  client = Mysql2::Client.new(
+    :host => 'localhost',
+    :username => 'root',
+    :password => 'root',
+    :database => 'threelights',
+    :encoding => 'utf8'
+  )
 
   import_categories(client)
   import_albums(client)
   import_images(client)
 end
 
+def import_images(client)
+  Image.delete_all
+
+  results = client.query("SELECT * FROM cpg1410_pictures")
+
+  results.each do |row|
+    parent = Album.where(legacy_id: row['aid']).first
+    raise Exception.new("Parent album not found #{row['aid']} for image #{row['pid']}") unless parent
+
+    image = File.open(Rails.root.join('data', 'pictures', row['filename']))
+
+    unless File.exists? image
+      p "Image missing: #{image.to_s}"
+      next
+    end
+
+    geo = Paperclip::Geometry.from_file(image)
+
+    name = row['title'].blank? ? row['filename'] : row['title']
+    Image.create!(
+      name: name,
+      description: row['caption'],
+      album_id: parent.id,
+      views: row['hits'],
+      legacy_pos: row['position'],
+      created_at: Time.at(row['ctime']).to_datetime,
+      updated_at: Time.at(row['mtime']).to_datetime,
+      width: geo.width,
+      height: geo.height,
+      subject: image
+    )
+  end
+end
 
 def import_albums(client)
   Album.delete_all
@@ -34,7 +73,7 @@ def import_categories(client)
   Category.delete_all
   root = Category.create!(name: 'ROOT', description: 'Categories in this category are top-level.', legacy_id: 0)
 
-  results = client.query("SELECT * FROM cpg1410_categories")
+  results = client.query("SELECT * FROM cpg1410_categories WHERE name <> 'User Galleries'")
 
   results.each do |category_row|
     import_category(client, category_row)
@@ -55,36 +94,9 @@ def import_category(client, row)
   end
 
   Category.create!(
-    name: row['name'],
+    name: row['name'].gsub('&amp;', '&'),
     description: row['description'],
     parent_id: parent.id,
     legacy_id: row['cid']
   )
-end
-
-def import_images(client)
-  Image.delete_all
-
-  results = client.query("SELECT * FROM cpg1410_pictures")
-
-  results.each do |row|
-    parent = Album.where(legacy_id: row['aid']).first
-    raise Exception.new("Parent album not found #{row['aid']} for image #{row['pid']}") unless parent
-
-    #image =
-    #geo = Paperclip::Geometry.from_file(image)
-    #geo.width
-    #geo.height
-
-    name = row['title'].blank? ? row['filename'] : row['title']
-    Image.create!(
-      name: name,
-      description: row['caption'],
-      album_id: parent.id,
-      views: row['hits'],
-      legacy_pos: row['position'],
-      created_at: Time.at(row['ctime']).to_datetime,
-      updated_at: Time.at(row['mtime']).to_datetime
-    )
-  end
 end
