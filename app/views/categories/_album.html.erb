@@ -2,7 +2,7 @@
   <% if album.images.empty? %>
 
   <% else %>
-    <%= image_tag album.images.first.subject.url(:thumb) %><br />
+    <%= link_to((image_tag album.images.first.subject.url(:thumb)), [album.category, album]) %><br />
   <% end %>
 
   <strong><%= link_to(album.name, [album.category, album]) %></strong>
