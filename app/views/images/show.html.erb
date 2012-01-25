@@ -8,7 +8,14 @@
   </tr>
   <tr>
     <td id="largeThumbnail" align="center">
-      <%= link_to (image_tag @image.subject.url(:view)), @image.subject.to_s, :target => '_blank' %>
+      <%=
+        link_to (image_tag @image.subject.url(:view)),
+          @image.subject.to_s,
+          :class => 'detailImage',
+          :target => '_blank',
+          :'data-width'=> @image.width,
+          :'data-height' => @image.height
+      %>
       <p>
         <strong><%= @image.name %></strong>
         <br />
@@ -37,8 +44,8 @@
 
 <% if is_admin? %>
 <div class="addButton">
-  <%= link_to 'Edit', edit_category_album_image_path(@image.album.category, @image.album, @image) %> 
-  <%= link_to 'Destroy', category_album_image_path(@image.album.category, @image.album, @image), :confirm => 'Are you sure?', :method => :delete %> 
+  <%= link_to 'Edit', edit_category_album_image_path(@image.album.category, @image.album, @image) %>
+  <%= link_to 'Destroy', category_album_image_path(@image.album.category, @image.album, @image), :confirm => 'Are you sure?', :method => :delete %>
   </div>
 <% end %>
 <!--<%= link_to 'Back', category_album_path(@image.album.category, @image.album) %>-->
