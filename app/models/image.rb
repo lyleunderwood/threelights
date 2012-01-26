@@ -5,6 +5,14 @@ class Image < ActiveRecord::Base
 
   slug :name
 
+  after_post_process :write_dimensions
+
+  def write_dimensions
+    geo = Paperclip::Geometry.from_file(subject.queued_for_write[:original])
+    self.width = geo.width
+    self.height = geo.height
+  end
+
   def viewed!
     self.views = self.views + 1
     save!
