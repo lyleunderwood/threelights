@@ -3,14 +3,23 @@ class Image < ActiveRecord::Base
 
   belongs_to :album
 
-  slug :name
-
   after_post_process :write_dimensions
+
+  slug :name
+  before_validation :normalize_name
 
   def write_dimensions
     geo = Paperclip::Geometry.from_file(subject.queued_for_write[:original])
     self.width = geo.width
     self.height = geo.height
+
+    true
+  end
+
+  def normalize_name
+    write_attribute(:name, subject_file_name) if name.blank?
+
+    true
   end
 
   def viewed!
