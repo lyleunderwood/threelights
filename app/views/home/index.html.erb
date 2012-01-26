@@ -4,7 +4,7 @@
     <td align="center"><span>Albums</span></td>
     <td align="center"><span>Files</span></td>
   </tr>
-<% @categories.each do |category| %>
+<% @categories.sort_by(&:name).each do |category| %>
   <tr class="main">
     <td>
       <%= link_to category.name, category %><br />
@@ -17,7 +17,7 @@
       <!--<%= category.contained_images.count %>-->
     </td>
   </tr>
-  <% category.children.each do |subcategory| %>
+  <% category.children.sort_by(&:name).each do |subcategory| %>
     <tr class="children">
       <td>
         <%= link_to subcategory.name, subcategory %><br />
