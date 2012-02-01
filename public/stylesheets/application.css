@@ -214,6 +214,64 @@ h2 {
   font-weight: bold;
   text-transform: uppercase;}
 
+#signInPage {
+  width: 856px;
+  margin: 0 auto;
+  padding:10px 0px 6px 13px;
+  }
+  
+#signIn {
+  padding: 16px 25px;
+  background-color: #102A39;
+  }
+  
+#signIn h2 {
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #FDE871;
+  font-style: normal;
+  font-weight: bold;
+  }
+  
+#signIn p {
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 10px;
+  color: #ffffff;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  }
+  
+p#signInButton input {
+  width: 100px;
+  background-color: #69B4B8;
+  color: #102A39;
+  margin-top: 15px;
+  }
+  
+#signIn input {
+  border: 0px;
+  padding: 12px 16px;
+  background-color: #69B4B8;  
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  font-size: 14px;
+  width: 300px;
+  font-weight: bold;
+  color: #102a39;
+  }
+  
+#signIn label {
+  text-align: left;}
+  
+#signIn a {
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 10px;
+  color: #FDE871;
+  line-height: 18px;
+  text-decoration: none;
+  }
+
 #main_categories {
   width:858px;
   margin: 0px auto;
@@ -538,6 +596,428 @@ tr.summary th {
     text-transform: uppercase;
     text-align: left;
 }
+
+table#editCategories {
+    width: 858px;
+    padding-left: 8px;
+    margin: 0 auto;
+    margin-top: 15px;
+    }
+    
+#editCategories td {
+    background-color: #102A39;
+    padding: 12px 16px;
+    }
+    
+#editCategories h2 {
+    color: #FDE871;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    }
+    
+#editCategories {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 17px;
+    }
+    
+#editCategories select {
+    background-color: #69B4B8;
+    padding: 12px 16px;
+    border: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    width: 432px;
+    margin: 0px 0px 12px 0px;
+    }
+    
+#editCategories select option {
+    background-color: #69B4B8;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 21px;
+    font-weight: normal;
+    }
+    
+#editCategories input {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    margin: 12px 0px;
+    }
+    
+#editCategories textarea {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 17px;
+    height: 200px;
+    margin: 12px 0px;
+  }
+  
+input#category_submit {
+  width: 170px;
+  }
+  
+table#newCategory {
+    width: 858px;
+    padding-left: 8px;
+    margin: 0 auto;
+    margin-top: 15px;
+    }
+    
+#newCategory td {
+    background-color: #102A39;
+    padding: 12px 16px;
+    }
+    
+#newCategory h2 {
+    color: #FDE871;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    }
+    
+#newCategory {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 17px;
+    }
+    
+#newCategory select {
+    background-color: #69B4B8;
+    padding: 12px 16px;
+    border: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    width: 432px;
+    margin: 0px 0px 12px 0px;
+    }
+    
+#newCategory select option {
+    background-color: #69B4B8;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 21px;
+    font-weight: normal;
+    }
+    
+#newCategory input {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    margin: 12px 0px;
+    }
+    
+#newCategory textarea {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 17px;
+    height: 200px;
+    margin: 12px 0px;
+  }
+  
+
+table#newAlbum {
+    width: 858px;
+    padding-left: 8px;
+    margin: 0 auto;
+    margin-top: 15px;
+    }
+    
+#newAlbum td {
+    background-color: #102A39;
+    padding: 12px 16px;
+    }
+    
+#newAlbum h2 {
+    color: #FDE871;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    }
+    
+#newAlbum {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 17px;
+    }
+    
+#newAlbum select {
+    background-color: #69B4B8;
+    padding: 12px 16px;
+    border: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    width: 432px;
+    margin: 0px 0px 12px 0px;
+    }
+    
+#newAlbum select option {
+    background-color: #69B4B8;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 21px;
+    font-weight: normal;
+    }
+    
+#newAlbum input {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    margin: 12px 0px;
+    }
+    
+#newAlbum textarea {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 17px;
+    height: 200px;
+    margin: 12px 0px;
+  }
+    
+
+input#album_submit {
+  width: 170px;
+  }  
+  
+table#editingImage {
+    width: 858px;
+    padding-left: 8px;
+    margin: 0 auto;
+    margin-top: 15px;
+    }
+    
+#editingImage td {
+    background-color: #102A39;
+    padding: 12px 16px;
+    }
+    
+#editingImage h2 {
+    color: #FDE871;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    }
+    
+#editingImage {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 17px;
+    }
+    
+#editingImage select {
+    background-color: #69B4B8;
+    padding: 12px 16px;
+    border: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    width: 432px;
+    margin: 0px 0px 12px 0px;
+    }
+    
+#editingImage select option {
+    background-color: #69B4B8;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 21px;
+    font-weight: normal;
+    }
+    
+#editingImage input {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    margin: 12px 0px;
+    }
+    
+#editingImage textarea {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 17px;
+    height: 200px;
+    margin: 12px 0px;
+  }
+    
+ 
+
+table#newImage {
+    width: 858px;
+    padding-left: 8px;
+    margin: 0 auto;
+    margin-top: 15px;
+    }
+    
+#newImage td {
+    background-color: #102A39;
+    padding: 12px 16px;
+    }
+    
+#newImage h2 {
+    color: #FDE871;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    }  
+  
+  
+#newImage {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 17px;
+    }
+    
+#newImage select {
+    background-color: #69B4B8;
+    padding: 12px 16px;
+    border: 0px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    width: 432px;
+    margin: 0px 0px 12px 0px;
+    }
+    
+#newImage select option {
+    background-color: #69B4B8;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    line-height: 21px;
+    font-weight: normal;
+    }
+    
+#newImage input {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    margin: 12px 0px;
+    }
+    
+#newImage textarea {
+    background-color: #69B4B8;
+    border: 0px;
+    width: 400px;
+    padding: 12px 16px;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 17px;
+    height: 200px;
+    margin: 12px 0px;
+  }
+   
+#newImage input#image_subject {
+  border: 0px;
+  padding: 12px 16px;
+  } 
+
+input#image_submit {
+  width: 170px;
+  }    
 
 table#albumMain {
   width: 858px;
