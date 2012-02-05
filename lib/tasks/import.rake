@@ -1,7 +1,7 @@
 require 'mysql2'
 
 desc "Migrate stuff over from old coppermine tables"
-task :import =>:environment do
+task :import => :environment do
   client = Mysql2::Client.new(
     :host => 'localhost',
     :username => 'root',
@@ -21,12 +21,12 @@ def import_images(client)
   results = client.query("SELECT * FROM cpg1410_pictures")
 
   results.each do |row|
-    parent = Album.where(legacy_id: row['aid']).first
+    parent = Album.where(:legacy_id => row['aid']).first
     raise Exception.new("Parent album not found #{row['aid']} for image #{row['pid']}") unless parent
 
     image = File.open(Rails.root.join('data', 'pictures', row['filename']))
 
-    unless File.exists? image.path
+    unless File.exists? image.to_s
       p "Image missing: #{image.to_s}"
       next
     end
@@ -34,18 +34,18 @@ def import_images(client)
     geo = Paperclip::Geometry.from_file(image)
 
     name = row['title'].blank? ? row['filename'] : row['title']
-    Image.create!(
-      name: decode(name),
-      description: decode(row['caption']),
-      album_id: parent.id,
-      views: row['hits'],
-      legacy_pos: row['position'],
-      created_at: Time.at(row['ctime']).to_datetime,
-      updated_at: Time.at(row['mtime']).to_datetime,
-      width: geo.width,
-      height: geo.height,
-      subject: image
-    )
+    Image.create!({
+      :name => decode(name),
+      :description => decode(row['caption']),
+      :album_id => parent.id,
+      :views => row['hits'],
+      :legacy_pos => row['position'],
+      :created_at => Time.at(row['ctime']).to_datetime,
+      :updated_at => Time.at(row['mtime']).to_datetime,
+      :width => geo.width,
+      :height => geo.height,
+      :subject => image
+    })
   end
 end
 
@@ -55,23 +55,23 @@ def import_albums(client)
   results = client.query("SELECT * FROM cpg1410_albums")
 
   results.each do |row|
-    parent = Category.where(legacy_id: row['category'] || 0).first
+    parent = Category.where(:legacy_id => row['category'] || 0).first
     raise Exception.new("Parent category #{row['category_id']} not found for album #{row['aid']}") unless parent
 
-    Album.create!(
-      name: decode(row['title']),
-      description: decode(row['description']),
-      category_id: parent.id,
-      position: row['pos'],
-      legacy_id: row['aid']
-    )
+    Album.create!({
+      :name => decode(row['title']),
+      :description => decode(row['description']),
+      :category_id => parent.id,
+      :position => row['pos'],
+      :legacy_id => row['aid']
+    })
   end
 end
 
 # not super efficient lol
 def import_categories(client)
   Category.delete_all
-  root = Category.create!(name: 'ROOT', description: 'Categories in this category are top-level.', legacy_id: 0)
+  root = Category.create!(:name => 'ROOT', :description => 'Categories in this category are top-level.', :legacy_id => 0)
 
   results = client.query("SELECT * FROM cpg1410_categories WHERE name <> 'User Galleries'")
 
@@ -82,10 +82,10 @@ end
 
 # recursive
 def import_category(client, row)
-  return if Category.where(legacy_id: row['id']).first
+  return if Category.where(:legacy_id => row['id']).first
 
   parent_id = row['parent']# == 0 ? nil : row['parent']
-  unless parent = Category.where(legacy_id: parent_id).first
+  unless parent = Category.where(:legacy_id => parent_id).first
     unless parent_row = client.query("SELECT * FROM cpg1410_categories WHERE cid = '#{row['parent']}'").first
       raise Exception.new("Parent category not found #{row['parent']} for category #{row['cid']}")
     end
@@ -93,12 +93,12 @@ def import_category(client, row)
     parent = import_category(client, parent_row)
   end
 
-  Category.create!(
-    name: decode(row['name']),
-    description: decode(row['description']),
-    parent_id: parent.id,
-    legacy_id: row['cid']
-  )
+  Category.create!({
+    :name => decode(row['name']),
+    :description => decode(row['description']),
+    :parent_id => parent.id,
+    :legacy_id => row['cid']
+  })
 end
 
 def decode(str)
