@@ -2,7 +2,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 require "bundler/capistrano"
 
-set :rvm_ruby_string, '1.9.3@threelights'
+set :rvm_ruby_string, '1.9.2@threelights'
 set :rvm_type, :user
 #set :rvm_bin_path, "/usr/local/rvm/bin"
 #set :rvm_path, "/usr/local/rvm"
