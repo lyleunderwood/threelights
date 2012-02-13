@@ -1,5 +1,11 @@
 class Image < ActiveRecord::Base
-  has_attached_file :subject, :styles => {:thumb => "100x100>", :view => "600x400>"}
+  has_attached_file :subject,
+    :styles => {
+        :thumb => "100x100>", :view => "600x400>"
+      },
+      :storage => :s3,
+      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+      :path => "/:style/:id/:filename"
 
   belongs_to :album
 

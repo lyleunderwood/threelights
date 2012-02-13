@@ -38,6 +38,10 @@ gem 'slug', :git => 'git://github.com/bkoski/slug.git'
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'kaminari'
 gem 'devise'
+gem 'aws-s3'
+gem 'unicorn'
+gem 'capistrano'
+gem 'capistrano-unicorn'
 
 group :development, :test do
   gem 'rspec'

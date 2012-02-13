@@ -35,7 +35,7 @@
   <tr>
     <td class="gallerySummary" colspan="3" align="center">
         <%= Image.count %> files in <%= Album.count %> albums
-  and <%= Category.count %> categories viewed <%= Image.sum(:views) %> times
+  and <%= Category.count %> categories viewed <%= number_with_delimiter(Image.sum(:views)) %> times
     </td>
   </tr>
 </table>

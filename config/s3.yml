@@ -1,0 +1,12 @@
+development:
+  bucket: threelights-gallery-production
+  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['AWS_ACCESS_KEY_SECRET'] %>
+test:
+  bucket: bucket-test
+  access_key_id: xxx
+  secret_access_key: xxx
+production:
+  bucket: threelights-gallery-production
+  access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['AWS_ACCESS_KEY_SECRET'] %>
