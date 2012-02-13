@@ -38,4 +38,10 @@ namespace :rvm do
   end
 end
 
+task :build_dirs, :roles => [:app, :web] do
+  run "mkdir #{release_path}/tmp/sockets"
+end
+
+after "deploy:update_code", :build_dirs
+
 require 'capistrano-unicorn'
