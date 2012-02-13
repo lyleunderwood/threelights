@@ -1,32 +1,37 @@
 Threelights::Application.routes.draw do
-  resources :categories do
-    resources :albums do
-      resources :images
+
+  scope '/gallery' do
+
+    resources :categories do
+      resources :albums do
+        resources :images
+      end
     end
+
+    devise_for :users do
+      get 'manage' => 'devise/sessions#new'
+    end
+
+    match 'indexlegacy' => 'redirect#category'
+    match 'thumbnailslegacy' => 'redirect#album'
+    match 'displayimagelegacy' => 'redirect#image'
+
+    get ':category_id/:id' => 'albums#show', :as => 'category_album'
+    put ':category_id/:id' => 'albums#update'
+    delete ':category_id/:id' => 'albums#destroy'
+
+    get ':category_id/:album_id/:id' => 'images#show', :as => 'category_album_image'
+    put ':category_id/:album_id/:id' => 'images#update'
+    delete ':category_id/:album_id/:id' => 'images#destroy'
+
+    get ':id' => 'categories#show', :as => 'category'
+    put ':id' => 'categories#update'
+    delete ':id' => 'categories#destroy'
+
+
+    root :to => "Home#index"
+
   end
-
-  devise_for :users do
-    get 'manage' => 'devise/sessions#new'
-  end
-
-  match 'indexlegacy' => 'redirect#category'
-  match 'thumbnailslegacy' => 'redirect#album'
-  match 'displayimagelegacy' => 'redirect#image'
-
-  get ':category_id/:id' => 'albums#show', :as => 'category_album'
-  put ':category_id/:id' => 'albums#update'
-  delete ':category_id/:id' => 'albums#destroy'
-
-  get ':category_id/:album_id/:id' => 'images#show', :as => 'category_album_image'
-  put ':category_id/:album_id/:id' => 'images#update'
-  delete ':category_id/:album_id/:id' => 'images#destroy'
-
-  get ':id' => 'categories#show', :as => 'category'
-  put ':id' => 'categories#update'
-  delete ':id' => 'categories#destroy'
-
-
-  root :to => "Home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
