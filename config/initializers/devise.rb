@@ -34,7 +34,8 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  # config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [ :email ]
+  config.reset_password_within = 6.hours
 
   # Tell if authentication through request.params is enabled. True by default.
   # config.params_authenticatable = true

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,12 +33,12 @@ gem 'rails', '3.0.3'
 #gem 'nested_set', :git => 'https://github.com/skyeagle/nested_set.git'
 gem 'awesome_nested_set'
 #gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'mysql2', '< 0.3.0'
-gem 'slug', :git => 'git://github.com/bkoski/slug.git'
+gem 'mysql2'
+gem 'slug', :git => 'git://github.com/zapnap/slug.git'
 gem "paperclip", :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'kaminari'
 gem 'devise'
-gem 'aws-s3'
+gem 'aws-sdk'
 gem 'unicorn'
 gem 'capistrano'
 gem 'capistrano-unicorn'

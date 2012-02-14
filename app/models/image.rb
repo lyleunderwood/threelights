@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
         :thumb => "100x100>", :view => "600x400>"
       },
       :storage => :s3,
-      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+      :s3_credentials => "#{Rails.root}/config/s3.yml",
       :path => "/:style/:id/:filename"
 
   belongs_to :album
