@@ -43,6 +43,14 @@ gem 'unicorn'
 gem 'capistrano'
 gem 'capistrano-unicorn'
 
+gem 'jquery-rails'
+
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
 group :development, :test do
   gem 'rspec'
   gem 'autotest'

@@ -1,5 +1,6 @@
 .bundle
 .htaccess
+.sass-cache/
 db/*.sqlite3
 log/*.log
 tmp/**/*
