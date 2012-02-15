@@ -5,7 +5,7 @@ require 'rails/all'
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 if defined?(Bundler)
-  Bundler.require(:default, :assets, Rails.env)
+  Bundler.require *Rails.groups(:assets => %w(development test))
 end
 
 module Threelights

@@ -44,4 +44,13 @@ end
 
 after "deploy:update_code", :build_dirs
 
+after('deploy:update_code', 'assets:precompile')
+
+namespace :assets do
+  desc 'Precompile assets'
+  task :precompile, :roles => :app do
+    run "cd #{current_path}; RAILS_ENV=production rake assets:precompile"
+  end
+end
+
 require 'capistrano-unicorn'
