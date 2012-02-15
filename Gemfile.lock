@@ -75,6 +75,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    dalli (1.1.4)
     devise (2.0.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -200,6 +201,7 @@ DEPENDENCIES
   capistrano
   capistrano-unicorn
   coffee-rails
+  dalli
   devise
   factory_girl
   faker

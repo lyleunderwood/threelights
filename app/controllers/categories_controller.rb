@@ -15,7 +15,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.xml
   def show
-    @category = Category.find_by_slug(params[:id])
+    Rails.cache.fetch("show_category_" + params[:id]) do
+      @category = Category.find_by_slug(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb

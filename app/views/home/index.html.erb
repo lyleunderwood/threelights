@@ -4,44 +4,46 @@
     <td align="center"><span>Albums</span></td>
     <td align="center"><span>Files</span></td>
   </tr>
-<% @categories.sort_by(&:name).each do |category| %>
-  <tr class="main">
-    <td>
-      <%= link_to category.name, category %><br />
-      <%= category.description %>
-    </td>
-    <td>
-      <!--<%= category.contained_albums.count %>-->
-    </td>
-    <td>
-      <!--<%= category.contained_images.count %>-->
-    </td>
-  </tr>
-  <% category.children.sort_by(&:name).each do |subcategory| %>
-    <tr class="children">
+<% cache do %>
+  <% @categories.sort_by(&:name).each do |category| %>
+    <tr class="main">
       <td>
-        <%= link_to subcategory.name, subcategory %><br />
-        <%= subcategory.description %>
+        <%= link_to category.name, category %><br />
+        <%= category.description %>
       </td>
       <td>
-        <%= subcategory.contained_albums.count %>
+        <!--<%= category.contained_albums.count %>-->
       </td>
       <td>
-        <%= subcategory.contained_images.count %>
+        <!--<%= category.contained_images.count %>-->
       </td>
     </tr>
+    <% category.children.sort_by(&:name).each do |subcategory| %>
+      <tr class="children">
+        <td>
+          <%= link_to subcategory.name, subcategory %><br />
+          <%= subcategory.description %>
+        </td>
+        <td>
+          <%= subcategory.contained_albums.count %>
+        </td>
+        <td>
+          <%= subcategory.contained_images.count %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
+    <tr>
+      <td class="gallerySummary" colspan="3" align="center">
+          <%= Image.count %> files in <%= Album.count %> albums
+    and <%= Category.count %> categories viewed <%= number_with_delimiter(Image.sum(:views)) %> times
+      </td>
+    </tr>
+  </table>
+
+
+  <%= render :template => 'images/latest' %>
 <% end %>
-  <tr>
-    <td class="gallerySummary" colspan="3" align="center">
-        <%= Image.count %> files in <%= Album.count %> albums
-  and <%= Category.count %> categories viewed <%= number_with_delimiter(Image.sum(:views)) %> times
-    </td>
-  </tr>
-</table>
-
-
-<%= render :template => 'images/latest' %>
 <%= render :template => 'images/random' %>
 
 <div class="addButton"><%= if_admin { link_to 'Add Category +', new_category_path } %></div>

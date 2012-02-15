@@ -45,6 +45,8 @@ gem 'capistrano-unicorn'
 
 gem 'jquery-rails'
 
+gem 'dalli'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'

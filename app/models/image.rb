@@ -35,9 +35,9 @@ class Image < ActiveRecord::Base
 
   def self.random category = nil, limit = nil
     if category
-      category.images(limit, 'RAND()')
+      category.images(limit, 'RAND()').includes(:album => :category)
     else
-      Image.order('RAND()').limit(8).all
+      Image.includes(:album => :category).order('RAND()').limit(8).all
     end
   end
 end

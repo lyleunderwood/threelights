@@ -11,7 +11,7 @@ require "rvm/capistrano"
 set :application, "threelights"
 set :repository,  "git@github.com:lyleunderwood/threelights.git"
 set :scm, :git
-set :branch, "master"
+set :branch, "rails3.2"
 
 set :rails_env, "production"
 set :deploy_env, "production"
@@ -49,7 +49,7 @@ after('deploy:update_code', 'assets:precompile')
 namespace :assets do
   desc 'Precompile assets'
   task :precompile, :roles => :app do
-    run "cd #{current_path}; RAILS_ENV=production rake assets:precompile"
+    run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
 
