@@ -1,107 +1,121 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Three-Lights.net Gallery</title>
-  <%= stylesheet_link_tag "/gallery/assets/stylesheets/application.css" %>
-  <%= javascript_include_tag "/gallery/assets/javascripts/application.js" %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-	<div id="header">
-    	<h1>
-        	<a href="http://www.three-lights.net">ThreeLights</a>
-        </h1>
-        <ul>
-            <li id="home">
-            	<a href="/">Home</a>
-            </li>
-            <li id="gallery">
-            	<a href="/gallery">Gallery</a>
-            </li>
-            <li id="classic">
-            	<a href="/classic.php">Classic</a>
-            </li>
-            <li id="media">
-            	<a href="/media.php">Media</a>
-            </li>
-            <li id="blog">
-            	<a href="/blog">Blog</a>
-            </li>
-            <li id="site">
-            	<a href="/site.php">Site</a>
-            </li>
-            <li id="links">
-            	<a href="/links.php">Links</a>
-            </li>
-        </ul>
-        <div class="clearLeft"></div>
+  <head>
+    <title>Three-Lights.net Gallery</title>
+    <%= stylesheet_link_tag "/gallery/assets/stylesheets/application.css" %>
+    <%= javascript_include_tag "/gallery/assets/javascripts/application.js" %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="header">
+      <h1><a href="http://www.three-lights.net">ThreeLights</a></h1>
+      <ul>
+        <li id="home">
+          <a href="/">Home</a>
+        </li>
+        <li id="gallery">
+          <a href="/gallery">Gallery</a>
+        </li>
+        <li id="classic">
+          <a href="/classic.php">Classic</a>
+        </li>
+        <li id="media">
+          <a href="/media.php">Media</a>
+        </li>
+        <li id="blog">
+          <a href="/blog">Blog</a>
+        </li>
+        <li id="site">
+          <a href="/site.php">Site</a>
+        </li>
+        <li id="links">
+          <a href="/links.php">Links</a>
+        </li>
+      </ul>
+
+      <div class="clearLeft"></div>
     </div>
+
     <div id="headBanner">
-    	<p>
-            <%= image_tag('subGallery.jpg', :alt => "Sailor Moon Community Links") %>
-        </p>
+      <p>
+        <%= image_tag('subGallery.jpg', :alt => "Sailor Moon Community Links") %>
+      </p>
     </div>
-  <% if is_admin? %>
+
+    <% if is_admin? %>
     <div id="adminArea">
-      <p class="admin">Currently logged in as <strong>Admin</strong>. <%= link_to 'Log out', destroy_user_session_path %></p>
-      <% end %>
-      <!--<%= notice %>
-      <%= alert %>-->
-  </div>
-<%= yield %>
-<div id="footer">
-    	<h1>
-        	<a href="index.php">ThreeLights</a>
-        </h1>
-        <ul>
-            <li id="footerHome">
-                <a href="/">Home</a>
+      <p class="admin">
+        Currently logged in as <strong>Admin</strong>.
+        <%= link_to 'Log out', destroy_user_session_path %>
+      </p>
+      <!--
+      <%= notice %>
+      <%= alert %>
+      -->
+    </div>
+    <% end %>
 
-            </li>
-            <li id="footerGallery">
-                <a href="/gallery">Gallery</a>
-            </li>
-            <li id="footerClassic">
-                <a href="/classic.php">Classic</a>
-            </li>
-            <li id="footerMedia">
+    <%= yield %>
 
-                <a href="/media.php">Media</a>
-            </li>
-            <li id="footerBlog">
-                <a href="/blog">Blog</a>
-            </li>
-            <li id="footerSite">
-                <a href="/site.php">Site</a>
+    <div id="footer">
+      <h1><a href="index.php">ThreeLights</a></h1>
+      <ul>
+        <li id="footerHome">
+          <a href="/">Home</a>
+        </li>
+        <li id="footerGallery">
+          <a href="/gallery">Gallery</a>
+        </li>
+        <li id="footerClassic">
+          <a href="/classic.php">Classic</a>
+        </li>
+        <li id="footerMedia">
+          <a href="/media.php">Media</a>
+        </li>
+        <li id="footerBlog">
+          <a href="/blog">Blog</a>
+        </li>
+        <li id="footerSite">
+          <a href="/site.php">Site</a>
+        </li>
+        <li id="footerLinks">
+          <a href="/links.php">Links</a>
+        </li>
+      </ul>
 
-            </li>
-            <li id="footerLinks">
-                <a href="/links.php">Links</a>
-            </li>
-        </ul>
-        <p>
-        	Sailor Moon is created by Naoko Takeuchi &reg; 1992 TOEI ANIMATION., LTD., Japan. Kodansha Animation<br />
+      <p>
+        Sailor Moon is created by Naoko Takeuchi &reg; 1992 TOEI ANIMATION.,
+        LTD., Japan. Kodansha Animation
+        <br />
 
-            Three-Lights.net is owned and designed by <a href="mailto:sano.izumi@gmail.com">Lisa Lam</a>.
-            This is not an official website of the Sailor Moon franchise.
-        </p>
-        <div class="clearLeft"></div>
+        Three-Lights.net is owned and designed by
+        <a href="mailto:sano.izumi@gmail.com">Lisa Lam</a>.
+
+        This is not an official website of the Sailor Moon franchise.
+      </p>
+
+      <div class="clearLeft"></div>
     </div>
 
 
 
-<!-- Google Analytics -->
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try {
-var pageTracker = _gat._getTracker("UA-12878470-1");
-pageTracker._trackPageview();
-} catch(err) {}</script>
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ?
+        "https://ssl." : "http://www.");
 
-<!-- End of Google Analytics -->
+      document.write(unescape("%3Cscript src='" + gaJsHost +
+        "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
 
-</body>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-12878470-1");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
+
+    <!-- End of Google Analytics -->
+
+  </body>
 </html>
