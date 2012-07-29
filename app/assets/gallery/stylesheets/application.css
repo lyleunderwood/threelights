@@ -30,12 +30,12 @@ body {
 	width: 841px;
 	height: 0px;
 	padding: 119px 0px 0px 0px;
-	background-image:url(../assets/headerLogo.gif);
+	background-image:url(../headerLogo.gif);
 	margin: 0px auto;
 	}
 
 #header ul {
-	background-image:url(../assets/navigation.gif);
+	background-image:url(../navigation.gif);
 	height:51px;
 	margin:0px auto;
 	padding:0px;
@@ -59,7 +59,7 @@ body {
 	}
 
 #header li a:hover {
-	background-image: url(../assets/navigationHover.gif);
+	background-image: url(../navigationHover.gif);
 	background-repeat: no-repeat;
 	}
 
@@ -1231,7 +1231,7 @@ div#loadMoreBlogs {
 	margin: 6px 15px 0px 0px;
 	display: block;
 	overflow: hidden;
-	background-image: url(../assets/showMore.gif);
+	background-image: url(../showMore.gif);
 	background-repeat: no-repeat;
 	float: right;
 }
@@ -1277,7 +1277,7 @@ div#subContent div.vintage h5 {
 span.arrow {
 	display: block;
 	overflow: hidden;
-	background-image:url(../assets/enterArrow.gif);
+	background-image:url(../enterArrow.gif);
 	padding: 18px 0px 0px 0px;
 	width: 18px;
 	height: 0px;
@@ -1288,7 +1288,7 @@ span.arrow {
 span.arrow2 {
 	display: block;
 	overflow: hidden;
-	background-image:url(../assets/enterArrow.gif);
+	background-image:url(../enterArrow.gif);
 	padding: 18px 0px 0px 0px;
 	width: 18px;
 	height: 0px;
@@ -1499,7 +1499,7 @@ div#subContent div.site a.siteLink:hover {
 
 #twitterScripts {
 	width: 195px;
-	background-image:url(../assets/twitterBG.gif);
+	background-image:url(../twitterBG.gif);
 	background-repeat: repeat-y;
 	padding: 0px;
 	display: block;
@@ -1567,7 +1567,7 @@ ul#twitter_update_list li {
 	margin: 0px;
 	display: block;
 	overflow: hidden;
-	background-image:url(../assets/twitterBird.jpg);
+	background-image:url(../twitterBird.jpg);
 	background-repeat: no-repeat;
 	height: 0px;
 	}
@@ -1642,7 +1642,7 @@ ul#twitter_update_list li {
 	height: 150px;
 	background-color: #0a627c;
 	float: left;
-	background-image:url(../assets/blogCorner.gif);
+	background-image:url(../blogCorner.gif);
 	background-position: top right;
 	background-repeat: no-repeat;
 	padding: 10px 22px;
@@ -1650,14 +1650,14 @@ ul#twitter_update_list li {
 	}
 
 #blogs div.blogBox:hover {
-	background-image:url(../assets/blogCornerHover.gif);
+	background-image:url(../blogCornerHover.gif);
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-color: #4c8689;
 	}
 
 #blogs div.hilight {
-	background-image:url(../assets/blogCornerHover.gif);
+	background-image:url(../blogCornerHover.gif);
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-color: #4c8689;
@@ -1716,7 +1716,7 @@ ul#twitter_update_list li {
 	width: 233px;
 	height: 150px;
 	background-color: #0a627c;
-	background-image:url(../assets/blogCorner.gif);
+	background-image:url(../blogCorner.gif);
 	background-position: top right;
 	background-repeat: no-repeat;
 	padding: 10px 22px;
@@ -1724,14 +1724,14 @@ ul#twitter_update_list li {
 	}
 
 #latest div.blogBox:hover {
-	background-image:url(../assets/blogCornerHover.gif);
+	background-image:url(../blogCornerHover.gif);
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-color: #4c8689;
 	}
 
 #latest div.hilight {
-	background-image:url(../assets/blogCornerHover.gif);
+	background-image:url(../blogCornerHover.gif);
 	background-position: top right;
 	background-repeat: no-repeat;
 	background-color: #4c8689;
@@ -1796,7 +1796,7 @@ ul#twitter_update_list li {
 	}
 
 #footer h1 a {
-	background-image:url(../assets/footerLogo.gif);
+	background-image:url(../footerLogo.gif);
 	background-repeat: no-repeat;
 	width: 270px;
 	height: 0px;
@@ -1808,7 +1808,7 @@ ul#twitter_update_list li {
 	}
 
 #footer ul {
-	background-image:url(../assets/footerNavigation.gif);
+	background-image:url(../footerNavigation.gif);
 	height:20px;
 	margin:23px 0px 0px 0px;
 	padding:0px;
@@ -1833,7 +1833,7 @@ ul#twitter_update_list li {
 	}
 
 #footer li a:hover {
-	background-image: url(../assets/footerNavigationHover.gif);
+	background-image: url(../footerNavigationHover.gif);
 	background-repeat: no-repeat;
 	}
 
@@ -2069,7 +2069,7 @@ ul.tabNavigation li {
 	display: block;
 	width: 104px;
 	height: 23px;
-	background-image:url(../assets/tabBG2.gif);
+	background-image:url(../tabBG2.gif);
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
@@ -2093,7 +2093,7 @@ div#subContent ul li.ui-tabs-selected {
 	display: block;
 	width: 104px;
 	height: 23px;
-	background-image:url(../assets/tabBG.gif);
+	background-image:url(../tabBG.gif);
 	padding: 0px;
 	margin: 0px;
 	text-align: center;

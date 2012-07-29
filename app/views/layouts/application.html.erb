@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Three-Lights.net Gallery</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "/gallery/assets/stylesheets/application.css" %>
+  <%= javascript_include_tag "/gallery/assets/javascripts/application.js" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -13,25 +13,25 @@
         </h1>
         <ul>
             <li id="home">
-            	<a href="#">Home</a>
+            	<a href="/">Home</a>
             </li>
             <li id="gallery">
-            	<a href="#">Gallery</a>
+            	<a href="/gallery">Gallery</a>
             </li>
             <li id="classic">
-            	<a href="#">Classic</a>
+            	<a href="/classic.php">Classic</a>
             </li>
             <li id="media">
-            	<a href="#">Media</a>
+            	<a href="/media.php">Media</a>
             </li>
             <li id="blog">
-            	<a href="#">Blog</a>
+            	<a href="/blog">Blog</a>
             </li>
             <li id="site">
-            	<a href="#">Site</a>
+            	<a href="/site.php">Site</a>
             </li>
             <li id="links">
-            	<a href="#">Links</a>
+            	<a href="/links.php">Links</a>
             </li>
         </ul>
         <div class="clearLeft"></div>
@@ -55,28 +55,28 @@
         </h1>
         <ul>
             <li id="footerHome">
-                <a href="index.php">Home</a>
+                <a href="/">Home</a>
 
             </li>
             <li id="footerGallery">
                 <a href="/gallery">Gallery</a>
             </li>
             <li id="footerClassic">
-                <a href="classic.php">Classic</a>
+                <a href="/classic.php">Classic</a>
             </li>
             <li id="footerMedia">
 
-                <a href="media.php">Media</a>
+                <a href="/media.php">Media</a>
             </li>
             <li id="footerBlog">
                 <a href="/blog">Blog</a>
             </li>
             <li id="footerSite">
-                <a href="site.php">Site</a>
+                <a href="/site.php">Site</a>
 
             </li>
             <li id="footerLinks">
-                <a href="links.php">Links</a>
+                <a href="/links.php">Links</a>
             </li>
         </ul>
         <p>

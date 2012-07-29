@@ -13,7 +13,8 @@ jQuery(function() {
       width: img.attr('data-width'),
       height: img.attr('data-height'),
       top: 0,
-      left: Math.round((screen.width / 2) - img.attr('data-width') / 2)
+      left: Math.round((screen.width / 2) - img.attr('data-width') / 2),
+      scrollbars: 1
     });
   });
 });
