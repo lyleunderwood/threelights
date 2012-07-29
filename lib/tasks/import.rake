@@ -41,6 +41,23 @@ task :count_missing_images => :environment do
   print missing_images.count.to_s + " missing images\n"
 end
 
+task :update_views => :environment do
+  client = Mysql2::Client.new(
+    :host => 'localhost',
+    :username => 'root',
+    :password => 'root',
+    :database => 'threelights',
+    :encoding => 'utf8'
+  )
+
+  results = client.query("SELECT * FROM cpg1410_pictures");
+
+  results.each do |row|
+    img = Image.where(legacy_id: row['pid']).first
+    img.update_attributes(views: row['hits']) if img and img.views != row['hits']
+  end
+end
+
 def import_images(client)
   print "Starting Images\n"
 
