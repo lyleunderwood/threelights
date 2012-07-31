@@ -10,7 +10,7 @@
     <td id="largeThumbnail" align="center">
       <%=
         link_to (image_tag @image.subject.url(:view)),
-          @image.subject.to_s,
+          category_album_image_full_path(@image.album.category, @image.album, @image),
           :class => 'detailImage',
           :target => '_blank',
           :'data-width'=> @image.width,
@@ -35,12 +35,6 @@
     </td>
   </tr>
 </table>
-
-
-
-
-
-
 
 <% if is_admin? %>
 <div class="addButton">

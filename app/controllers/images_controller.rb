@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class ImagesController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
 
@@ -18,14 +20,32 @@ class ImagesController < ApplicationController
     @image = Image.find_by_slug(params[:id])
     @images = image_range(@image)
 
-    #@image.views = @image.views + 1
-    #@image.save!
     @image.viewed!
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @image }
     end
+  end
+
+  # GET /images/full/slug
+  def full
+    @image = Image.find_by_slug(params[:id])
+
+    respond_to do |format|
+      format.html { render :full, :layout => false } # full.html.erb
+      format.xml  { render :xml => @image }
+    end
+  end
+
+  # GET /albums/userpics/10001/sailorstarspb_47.jpg
+  def proxy
+    @image = Image.find_by_subject_file_name(params[:src])
+
+    #file = open(@image.subject.url(:original))
+    
+    #send_data file, :type => file.content_type, :disposition => 'inline'
+    redirect_to @image.subject.url, :status => :moved_permanently
   end
 
   # GET /images/new

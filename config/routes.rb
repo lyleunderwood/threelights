@@ -15,12 +15,18 @@ Threelights::Application.routes.draw do
     match 'indexlegacy' => 'redirect#category'
     match 'thumbnailslegacy' => 'redirect#album'
     match 'displayimagelegacy' => 'redirect#image'
+    
+    get 'albums/userpics/10001/:src', 
+      :controller => 'images', 
+      :action => 'proxy',
+      :constraints => { :src => /.+/ }
 
     get ':category_id/:id' => 'albums#show', :as => 'category_album'
     put ':category_id/:id' => 'albums#update'
     delete ':category_id/:id' => 'albums#destroy'
 
     get ':category_id/:album_id/:id' => 'images#show', :as => 'category_album_image'
+    get ':category_id/:album_id/:id/full' => 'images#full', :as => 'category_album_image_full'
     put ':category_id/:album_id/:id' => 'images#update'
     delete ':category_id/:album_id/:id' => 'images#destroy'
 
