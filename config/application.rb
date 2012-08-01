@@ -48,7 +48,5 @@ module Threelights
     config.assets.version = '1.0'
 
     config.assets.prefix = "/gallery/assets"
-    config.assets.digest = false
-    config.assets.compile = false
   end
 end
