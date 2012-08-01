@@ -40,12 +40,23 @@ class ImagesController < ApplicationController
 
   # GET /albums/userpics/10001/sailorstarspb_47.jpg
   def proxy
-    @image = Image.find_by_subject_file_name(params[:src])
+    if params[:src] =~ /^thumb_/
+      type= 'thumb'
+      src = params[:src].sub /^thumb_/, ''
+    elsif params[:src] =~ /^normal_/
+      type= 'view'
+      src = params[:src].sub /^normal_/, ''
+    else
+      type = 'original'
+      src = params[:src]
+    end
+
+    @image = Image.find_by_subject_file_name(src)
 
     #file = open(@image.subject.url(:original))
     
     #send_data file, :type => file.content_type, :disposition => 'inline'
-    redirect_to @image.subject.url, :status => :moved_permanently
+    redirect_to @image.subject.url(type.to_sym), :status => :moved_permanently
   end
 
   # GET /images/new
