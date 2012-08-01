@@ -9,6 +9,8 @@ class Image < ActiveRecord::Base
 
   belongs_to :album
 
+  has_one :covered_album, :inverse_of => :cover, :class_name => 'Album'
+
   after_post_process :write_dimensions
 
   slug :name

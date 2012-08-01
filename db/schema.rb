@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213005543) do
+ActiveRecord::Schema.define(:version => 20120801074212) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120213005543) do
     t.integer  "category_id"
     t.integer  "position"
     t.integer  "legacy_id"
+    t.integer  "cover_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -59,8 +61,9 @@ ActiveRecord::Schema.define(:version => 20120213005543) do
     t.integer  "brute_force", :limit => 1,   :default => 0, :null => false
   end
 
-  create_table "cpg1410_bridge", :primary_key => "name", :force => true do |t|
-    t.string "value", :default => "", :null => false
+  create_table "cpg1410_bridge", :id => false, :force => true do |t|
+    t.string "name",  :limit => 40, :default => "0", :null => false
+    t.string "value",               :default => "",  :null => false
   end
 
   add_index "cpg1410_bridge", ["name"], :name => "name", :unique => true
@@ -109,8 +112,9 @@ ActiveRecord::Schema.define(:version => 20120213005543) do
     t.text   "sender_ip",       :limit => 255,                 :null => false
   end
 
-  create_table "cpg1410_exif", :primary_key => "filename", :force => true do |t|
-    t.text "exifData", :null => false
+  create_table "cpg1410_exif", :id => false, :force => true do |t|
+    t.string "filename", :default => "", :null => false
+    t.text   "exifData",                 :null => false
   end
 
   add_index "cpg1410_exif", ["filename"], :name => "filename", :unique => true

@@ -12,7 +12,21 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :category %><br />
     <%= f.select :category_id, nested_set_options(Category) {|i| "#{'-' * i.level} #{i.name}" } %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cover %><br />
+    <%=
+      f.collection_select(
+        :cover_id,
+        @album.images.order(:subject_file_name),
+        :id,
+        :subject_file_name,
+        :include_blank => true
+      )
+    %>
   </div>
 
   <% #f.hidden_field :category_id %>
