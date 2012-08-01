@@ -44,7 +44,7 @@ gem 'capistrano'
 gem 'rvm-capistrano'
 gem 'capistrano-unicorn'
 
-gem 'rake', '0.8.7'
+#gem 'rake', '0.8.7'
 
 gem 'jquery-rails'
 
