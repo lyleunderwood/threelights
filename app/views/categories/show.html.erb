@@ -18,7 +18,7 @@
 
       <p>
         <b>Description:</b>
-        <%= @category.description %>
+        <%=raw h(@category.description).gsub(/\n/, '<br />') %>
       </p>
     </td>
   </tr>-->
@@ -59,9 +59,9 @@
 
 <% if is_admin? %>
 <div class="addButton">
-  <%= link_to 'Add Album +', new_category_album_path(@category) %> 
-  <%= link_to 'Edit', edit_category_path(@category) %> 
-  <%= link_to 'Destroy', category_path(@category), :confirm => 'Are you sure?', :method => :delete %> 
+  <%= link_to 'Add Album +', new_category_album_path(@category) %>
+  <%= link_to 'Edit', edit_category_path(@category) %>
+  <%= link_to 'Destroy', category_path(@category), :confirm => 'Are you sure?', :method => :delete %>
 </div>
 <% end %>
 <!--<%= link_to 'Back', cat_parent_path(@category) %>-->
