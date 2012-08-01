@@ -41,6 +41,7 @@ gem 'devise'
 gem 'aws-sdk'
 gem 'unicorn'
 gem 'capistrano'
+gem 'rvm-capistrano'
 gem 'capistrano-unicorn'
 
 gem 'jquery-rails'

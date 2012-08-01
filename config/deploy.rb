@@ -1,4 +1,4 @@
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+#$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 require "bundler/capistrano"
 
@@ -17,7 +17,7 @@ set :rails_env, "production"
 set :deploy_env, "production"
 set :unicorn_env, "production"
 
-server "ec2-50-18-242-29.us-west-1.compute.amazonaws.com", :app, :web, :db, :primary => true
+server "three-lights.net", :app, :web, :db, :primary => true
 
 set :deploy_to, "/var/threelights"
 
