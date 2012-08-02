@@ -52,4 +52,10 @@ module ApplicationHelper
   def is_admin?
     user_signed_in?
   end
+
+  def title(part)
+    title = "Three-Lights.net Gallery"
+    title = "#{part.to_s} :: #{title}" if part
+    content_for :title, title
+  end
 end

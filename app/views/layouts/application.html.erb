@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Three-Lights.net Gallery</title>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : "Three-Lights.net Gallery" %>
+    </title>
     <%= stylesheet_link_tag 'stylesheets/application' %>
     <%= javascript_include_tag 'javascripts/application' %>
     <%= csrf_meta_tag %>
