@@ -21,6 +21,11 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @album }
+      format.zip do
+        send_file @album.to_zip.path,
+          :type => "application/zip",
+          :filename => "#{@album.name}.zip"
+      end
     end
   end
 
