@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801074212) do
+ActiveRecord::Schema.define(:version => 20120805104411) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(:version => 20120801074212) do
     t.integer  "position"
     t.integer  "legacy_id"
     t.integer  "cover_id"
+    t.string   "archive_file_name"
+    t.string   "archive_content_type"
+    t.integer  "archive_file_size"
+    t.datetime "archive_updated_at"
   end
 
   create_table "categories", :force => true do |t|

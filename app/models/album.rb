@@ -8,7 +8,17 @@ class Album < ActiveRecord::Base
 
   belongs_to :cover, :inverse_of => :covered_album, :class_name => 'Image'
 
+  has_attached_file :archive,
+    :path => "/tmp/album_archives/:filename"
+
+  def expire_archive
+    archive.destroy
+    save!
+  end
+
   def to_zip
+    return archive if archive.present?
+
     file = ::Tempfile.new("album-zip-#{name}")
 
     Zip::ZipOutputStream.open(file.path) do |stream|
@@ -17,6 +27,9 @@ class Album < ActiveRecord::Base
         stream.print IO.read(image.subject.to_file.path)
       end
     end
+
+    self.archive = file
+    save!
 
     file
   end

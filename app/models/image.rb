@@ -3,9 +3,9 @@ class Image < ActiveRecord::Base
     :styles => {
         :thumb => "100x100>", :view => "600x400>"
       },
-      :storage => :s3,
-      :s3_credentials => "#{Rails.root}/config/s3.yml",
-      :path => "/:style/:id/:filename"
+    :storage => :s3,
+    :s3_credentials => "#{Rails.root}/config/s3.yml",
+    :path => "/:style/:id/:filename"
 
   belongs_to :album
 
@@ -15,6 +15,24 @@ class Image < ActiveRecord::Base
 
   slug :name
   before_validation :normalize_name
+
+  after_create do
+    album.expire_archive
+  end
+
+  after_destroy do
+    album.expire_archive
+  end
+
+  after_save do
+    return unless changed.include? 'album_id'
+
+    album.expire_archive
+
+    return unless old_album_id = changes['album_id'][0]
+
+    Album.find(old_album_id).expire_archive
+  end
 
   def write_dimensions
     geo = Paperclip::Geometry.from_file(subject.queued_for_write[:original])
