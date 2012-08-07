@@ -15,9 +15,9 @@ Threelights::Application.routes.draw do
     match 'indexlegacy' => 'redirect#category'
     match 'thumbnailslegacy' => 'redirect#album'
     match 'displayimagelegacy' => 'redirect#image'
-    
-    get 'albums/userpics/10001/:src', 
-      :controller => 'images', 
+
+    get 'albums/userpics/10001/:src',
+      :controller => 'images',
       :action => 'proxy',
       :constraints => { :src => /.+/ }
 

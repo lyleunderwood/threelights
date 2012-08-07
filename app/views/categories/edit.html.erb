@@ -3,6 +3,15 @@
     <td>
       <h2>Editing Categories</h2>
       <%= render 'form' %>
+
+      <ul class="albums">
+      <% @category.albums.each do |album| %>
+        <li id="<%= category_album_path(album.category, album) %>">
+          <%= album.name %>
+        </li>
+      <% end %>
+      </ul>
+
     </td>
   </tr>
 </table>

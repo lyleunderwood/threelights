@@ -11,6 +11,8 @@ class Album < ActiveRecord::Base
   has_attached_file :archive,
     :path => "/tmp/album_archives/:filename"
 
+  acts_as_list :scope => :category
+
   def expire_archive
     archive.destroy
     save!

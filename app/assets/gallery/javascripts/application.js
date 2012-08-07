@@ -17,4 +17,44 @@ jQuery(function() {
       scrollbars: 1
     });
   });
+
+  var list;
+  if (list = $('#editCategories ul.albums').get(0)) {
+    $(list).sortable({
+      dropOnEmpty: false,
+      cursor: 'crosshair',
+      axis: 'y',
+      items: 'li',
+      opacity: 0.4,
+      scroll: true,
+      update: function(event, ui) {
+        var id = ui.item.get(0).id;
+        var items = $(list).sortable('toArray');
+
+        var idx = items.indexOf(id);
+        if (idx === -1) {
+          return false;
+        }
+
+        var sent = true;
+
+        $.ajax({
+          url: id,
+          type: 'put',
+          data: {
+            album: {
+              position: idx,
+            }
+          },
+          dataType: 'json',
+          complete: function(request){
+            console.log('got a complete', arguments);
+          },
+          error: function() {
+            console.log('got an error', arguments);
+          }
+        }) // ajax
+      } // update
+    }); // sortable
+  }
 });

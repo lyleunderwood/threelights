@@ -3,7 +3,7 @@ class Category < ActiveRecord::Base
 
   slug :name
 
-  has_many :albums
+  has_many :albums, :order => :position
 
   def contained_albums
     categories = descendants + [self]
@@ -14,7 +14,7 @@ class Category < ActiveRecord::Base
     end
     sub_albums
   end
-  
+
   def contained_images
     sub_images = []
     contained_albums.each do |album|
