@@ -18,20 +18,25 @@ class Image < ActiveRecord::Base
 
   after_create do
     album.expire_archive
+    #album.increment_image_count!
   end
 
   after_destroy do
     album.expire_archive
+    album.decrement_image_count!
   end
 
   after_save do
     return unless changed.include? 'album_id'
 
     album.expire_archive
+    album.increment_image_count!
 
     return unless old_album_id = changes['album_id'][0]
 
-    Album.find(old_album_id).expire_archive
+    old_album = Album.find(old_album_id)
+    old_album.expire_archive
+    old_album.decrement_image_count!
   end
 
   def write_dimensions

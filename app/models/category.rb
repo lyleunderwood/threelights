@@ -1,26 +1,38 @@
 class Category < ActiveRecord::Base
-  acts_as_nested_set
+  acts_as_nested_set :before_add => :category_added
 
   slug :name
 
   has_many :albums, :order => :position
 
   def contained_albums
-    categories = descendants + [self]
-
-    sub_albums = []
-    categories.each do |category|
-      sub_albums = sub_albums + category.albums
-    end
-    sub_albums
+    self_and_descendants.map(&:albums).flatten
   end
 
   def contained_images
-    sub_images = []
-    contained_albums.each do |album|
-      sub_images = sub_images + album.images
-    end
-    sub_images
+    contained_albums.map(&:images).flatten
+  end
+
+  def image_count
+    return self[:image_count] if self[:image_count]
+    self[:image_count] = contained_images.count
+    save!
+
+    self[:image_count]
+  end
+
+  def category_added
+    # doesn't get called for some reason
+  end
+
+  def increment_image_count!(amount = 1)
+    self.image_count = self.image_count + amount
+    save!
+  end
+
+  def decrement_image_count!(amount = 1)
+    self.image_count = self.image_count - amount
+    save!
   end
 
   def images(limit = 8, order = nil)

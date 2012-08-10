@@ -27,7 +27,7 @@
   </tr>
   <tr class="summary">
     <td>
-      <%= @album.images.count %> images on <%= pluralize(@images.num_pages, 'page') %>
+      <%= @album.image_count %> images on <%= pluralize(@images.num_pages, 'page') %>
     </td>
     <td class="albumPaginate" align="right">
       <%= paginate @images %>

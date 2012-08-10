@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120805104411) do
+ActiveRecord::Schema.define(:version => 20120810091524) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120805104411) do
     t.string   "archive_content_type"
     t.integer  "archive_file_size"
     t.datetime "archive_updated_at"
+    t.integer  "image_count"
   end
 
   create_table "categories", :force => true do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120805104411) do
     t.integer  "rgt"
     t.string   "slug"
     t.integer  "legacy_id"
+    t.integer  "image_count"
   end
 
   create_table "cpg1410_albums", :primary_key => "aid", :force => true do |t|

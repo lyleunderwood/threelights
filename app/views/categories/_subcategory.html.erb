@@ -11,7 +11,7 @@
     <%= subcategory.contained_albums.count %>
   </td>
   <td align="center">
-    <%= subcategory.contained_images.count %>
+    <%= subcategory.image_count %>
   </td>
 </tr>
 
@@ -30,7 +30,7 @@
 <tr class="subcategories">
           <td width="600"><%= link_to child.name, child %></td>
           <td align="center"><%= child.contained_albums.count %></td>
-          <td align="center"><%= child.contained_images.count %></td>
+          <td align="center"><%= child.image_count %></td>
 </tr>
 <% end %>
 <% end %>

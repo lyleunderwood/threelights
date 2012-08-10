@@ -14,7 +14,7 @@
       <!--<%= category.contained_albums.count %>-->
     </td>
     <td>
-      <!--<%= category.contained_images.count %>-->
+      <!--<%= category.image_count %>-->
     </td>
   </tr>
   <% category.children.sort_by(&:name).each do |subcategory| %>
@@ -27,7 +27,7 @@
         <%= subcategory.contained_albums.count %>
       </td>
       <td>
-        <%= subcategory.contained_images.count %>
+        <%= subcategory.image_count %>
       </td>
     </tr>
   <% end %>

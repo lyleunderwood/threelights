@@ -1,5 +1,5 @@
 <li>
-  <% if album.images.empty? %>
+  <% if album.image_count.zero? %>
 
   <% else %>
     <%=
@@ -17,6 +17,6 @@
 
   <strong><%= link_to(album.name, [album.category, album]) %></strong>
   <p class="details">
-    <%= album.images.count %> files, last updated on <%= album.updated_at %>
+    <%= album.image_count %> files, last updated on <%= album.updated_at %>
   </p>
 </li>
