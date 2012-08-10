@@ -6,11 +6,12 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.xml
   def index
-    @images = Image.all
+    @images = Image.page(0).per(20)
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @images }
+      format.rss  { render :layout => nil, :content_type => 'application/xml' }
     end
   end
 
@@ -54,7 +55,7 @@ class ImagesController < ApplicationController
     @image = Image.find_by_subject_file_name(src)
 
     #file = open(@image.subject.url(:original))
-    
+
     #send_data file, :type => file.content_type, :disposition => 'inline'
     redirect_to @image.subject.url(type.to_sym), :status => :moved_permanently
   end

@@ -21,6 +21,8 @@ Threelights::Application.routes.draw do
       :action => 'proxy',
       :constraints => { :src => /.+/ }
 
+    get 'images' => 'images#index', :defaults => { :format => 'rss' }, :as => 'feed'
+
     get ':category_id/:id' => 'albums#show', :as => 'category_album'
     put ':category_id/:id' => 'albums#update'
     delete ':category_id/:id' => 'albums#destroy'
