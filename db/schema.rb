@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810091524) do
+ActiveRecord::Schema.define(:version => 20120811053136) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,12 @@ ActiveRecord::Schema.define(:version => 20120810091524) do
     t.integer  "image_count"
   end
 
+  add_index "albums", ["archive_file_name"], :name => "index_albums_on_archive_file_name"
+  add_index "albums", ["category_id"], :name => "index_albums_on_category_id"
+  add_index "albums", ["image_count"], :name => "index_albums_on_image_count"
+  add_index "albums", ["legacy_id"], :name => "index_albums_on_legacy_id"
+  add_index "albums", ["slug"], :name => "index_albums_on_slug"
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -42,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20120810091524) do
     t.integer  "legacy_id"
     t.integer  "image_count"
   end
+
+  add_index "categories", ["image_count"], :name => "index_categories_on_image_count"
+  add_index "categories", ["legacy_id"], :name => "index_categories_on_legacy_id"
+  add_index "categories", ["lft"], :name => "index_categories_on_lft"
+  add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
+  add_index "categories", ["rgt"], :name => "index_categories_on_rgt"
+  add_index "categories", ["slug"], :name => "index_categories_on_slug"
 
   create_table "cpg1410_albums", :primary_key => "aid", :force => true do |t|
     t.string  "title",                           :default => "",    :null => false
@@ -273,6 +286,14 @@ ActiveRecord::Schema.define(:version => 20120810091524) do
     t.integer  "height"
     t.integer  "legacy_id"
   end
+
+  add_index "images", ["album_id"], :name => "index_images_on_album_id"
+  add_index "images", ["created_at"], :name => "index_images_on_created_at"
+  add_index "images", ["legacy_id"], :name => "index_images_on_legacy_id"
+  add_index "images", ["legacy_pos"], :name => "index_images_on_legacy_pos"
+  add_index "images", ["slug"], :name => "index_images_on_slug"
+  add_index "images", ["subject_file_name"], :name => "index_images_on_subject_file_name"
+  add_index "images", ["views"], :name => "index_images_on_views"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
