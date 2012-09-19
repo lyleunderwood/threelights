@@ -26,7 +26,7 @@ module ApplicationHelper
         end
       end
 
-      trail << link_to(target.name, [target.category, target])
+      trail << link_to(raw(target.name), [target.category, target])
     elsif target.is_a? Image
       path = target.album.category.ancestors
       path << target.album.category
@@ -56,6 +56,6 @@ module ApplicationHelper
   def title(part)
     title = "Three-Lights.net Gallery"
     title = "#{part.to_s} :: #{title}" if part
-    content_for :title, title
+    content_for :title, raw(title)
   end
 end

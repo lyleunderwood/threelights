@@ -15,7 +15,7 @@
   <br />
   <% end %>
 
-  <strong><%= link_to(album.name, [album.category, album]) %></strong>
+  <strong><%= link_to(raw(album.name), [album.category, album]) %></strong>
   <p class="details">
     <%= album.image_count %> files, last updated on <%= album.updated_at %>
   </p>

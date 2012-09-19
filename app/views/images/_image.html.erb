@@ -2,6 +2,6 @@
   <%= link_to(image_tag(image.subject.url(:thumb)), category_album_image_path(image.album.category, image.album, image)) %><br />
   <strong><%= image.name %></strong><br />
   <strong><%= image.views %> views</strong><br />
-  <%=raw h(image.description).gsub(/\n/, '<br />') %><br />
+  <%=raw image.description.gsub(/\n/, '<br />') %><br />
   <span class="destroyImage"><%= if_admin { link_to 'Destroy', [image.album.category, image.album, image], :confirm => 'Are you sure?', :method => :delete } %></span>
 </li>

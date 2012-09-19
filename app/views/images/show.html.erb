@@ -21,7 +21,7 @@
       <p>
         <strong><%= @image.name %></strong>
         <br />
-        <%=raw h(@image.description).gsub(/\n/, '<br />') %>
+        <%=raw @image.description.gsub(/\n/, '<br />') %>
         <br />
        <%= @image.views %> views
       </p>
