@@ -39,7 +39,7 @@ module ApplicationHelper
         end
       end
 
-      trail << link_to(target.album.name, [target.album.category, target.album])
+      trail << link_to(raw(target.album.name), [target.album.category, target.album])
       trail << link_to(target.name, [target.album.category, target.album, target])
     end
     trail
