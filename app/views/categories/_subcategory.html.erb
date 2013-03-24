@@ -4,7 +4,7 @@
     <%= subcategory.description %>
     <% if is_admin? %>
       --
-      <%= link_to 'Destroy', subcategory.parent, :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to 'Destroy', subcategory, :confirm => 'Are you sure?', :method => :delete %>
     <% end %>
   </td>
   <td align="center">
