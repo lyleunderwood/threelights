@@ -50,6 +50,10 @@ gem 'capistrano-unicorn'
 
 gem 'jquery-rails'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'jbuilder'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
@@ -57,12 +61,12 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'rspec'
-  gem 'autotest'
-  gem 'test_notifier'
-  #gem 'remarkable_rails'
-  gem 'factory_girl' #, '2.0.0.beta1'
-  #gem 'mongoid-rspec'
-  gem 'rspec-rails' #, '~> 2.3.1'
-  gem 'faker'
+  # gem 'rspec'
+  # gem 'autotest'
+  # gem 'test_notifier'
+  # #gem 'remarkable_rails'
+  # gem 'factory_girl' #, '2.0.0.beta1'
+  # #gem 'mongoid-rspec'
+  # gem 'rspec-rails' #, '~> 2.3.1'
+  # gem 'faker'
 end

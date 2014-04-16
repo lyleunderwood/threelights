@@ -1,0 +1,10 @@
+<tr class="result album">
+  <td>
+    <p class="name">
+      <%= link_to hl(hit, :name), category_album_path(album.category, album) %>
+    </p>
+    <p class="description">
+      <%= hl hit, :description %>
+    </p>
+  </td>
+</tr>

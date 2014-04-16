@@ -1,0 +1,13 @@
+<table class="contents results">
+  <tr>
+    <td id="galleryBreadcrumbs" colspan="2">
+      Search
+    </td>
+  </tr>
+<%= render :partial => 'search/result', :collection => @search.records_and_hits %>
+  <tr class="summary">
+    <td class="albumPaginate" align="right">
+      <%= paginate @search.results %>
+    </td>
+  </tr>
+</table>

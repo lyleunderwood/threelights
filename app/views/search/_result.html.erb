@@ -1,0 +1,8 @@
+<%
+record = result[:record];
+hsh = {}
+hit = result[:hit];
+hsh[:hit] = hit
+hsh[hit._type.to_sym] = record
+%>
+<%= render(:partial => "search/#{hit._type}", :locals => hsh) %>

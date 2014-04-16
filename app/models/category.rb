@@ -1,4 +1,8 @@
+require File.join(Rails.root, 'lib', 'searchable')
+
 class Category < ActiveRecord::Base
+  include ::Searchable
+
   acts_as_nested_set :before_add => :category_added
 
   slug :name

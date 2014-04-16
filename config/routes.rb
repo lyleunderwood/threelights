@@ -2,6 +2,8 @@ Threelights::Application.routes.draw do
 
   scope '/gallery' do
 
+    get "search" => 'search#index'
+
     resources :categories do
       resources :albums do
         resources :images

@@ -1,4 +1,8 @@
+require File.join(Rails.root, 'lib', 'searchable')
+
 class Image < ActiveRecord::Base
+  include ::Searchable
+
   has_attached_file :subject,
     :styles => {
         :thumb => "100x100>", :view => "600x400>"

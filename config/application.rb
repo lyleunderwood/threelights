@@ -48,5 +48,7 @@ module Threelights
     config.assets.version = '1.0'
 
     config.assets.prefix = "/gallery/assets"
+
+    require 'elasticsearch/rails/instrumentation'
   end
 end

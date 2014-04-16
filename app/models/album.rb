@@ -1,6 +1,9 @@
 require 'zip/zip'
+require File.join(Rails.root, 'lib', 'searchable')
 
 class Album < ActiveRecord::Base
+  include ::Searchable
+
   has_many :images
   belongs_to :category
 

@@ -2104,3 +2104,8 @@ div#subContent ul li.ui-tabs-selected a {
 	color: #FDE871;
 }
 
+/* search */
+
+.results em {
+  background: yellow;
+}
